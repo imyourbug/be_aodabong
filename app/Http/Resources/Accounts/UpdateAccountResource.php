@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace App\Http\Resources\Categories;
+namespace App\Http\Resources\Accounts;
 
 use App\Http\Resources\BaseResource;
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Http\Request;
 use JsonSerializable;
 
-class UpdateCategoryResource extends BaseResource
+class UpdateAccountResource extends BaseResource
 {
     /**
      * Transform the resource into an array.

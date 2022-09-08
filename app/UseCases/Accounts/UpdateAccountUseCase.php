@@ -2,27 +2,29 @@
 
 declare(strict_types=1);
 
-namespace App\UseCases\Categories;
+namespace App\UseCases\Accounts;
 
 use App\Const\GlobalConst;
-use App\Models\Category;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
-class UpdateCategoryUseCase
+class UpdateAccountUseCase
 {
     public function __invoke($params): array
     {
-        $category = Category::firstWhere('id', $params['id']) ?? '';
-        if (!$category) {
+        $account = User::firstWhere('id', $params['id']) ?? '';
+        if (!$account) {
             return [
                 'status' => GlobalConst::STATUS_ERROR,
                 'error' => [
                     'code' => GlobalConst::IS_EMPTY,
-                    'message' => 'Danh mục không tồn tại!'
+                    'message' => 'Tài khoản không tồn tại!'
                 ]
             ];
         }
-        $update_category = $category->update($params);
-        if (!$update_category) {
+        $params['password'] = Hash::make($params['password']);
+        $update_account = $account->update($params);
+        if (!$update_account) {
             return [
                 'status' => GlobalConst::STATUS_ERROR,
                 'error' => [

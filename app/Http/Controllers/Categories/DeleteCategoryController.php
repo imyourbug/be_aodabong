@@ -8,6 +8,7 @@ use App\Http\Controllers\BaseController;
 use App\Http\Requests\Categories\DeleteCategoryRequest;
 use App\Http\Resources\Categories\DeleteCategoryResource;
 use App\UseCases\Categories\DeleteCategoryUseCase;
+use Exception;
 use Illuminate\Http\JsonResponse;
 
 class DeleteCategoryController extends BaseController

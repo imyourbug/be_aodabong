@@ -2,32 +2,32 @@
 
 declare(strict_types=1);
 
-namespace App\UseCases\Categories;
+namespace App\UseCases\Accounts;
 
 use App\Const\GlobalConst;
-use App\Models\Category;
+use App\Models\User;
 
-class DeleteCategoryUseCase
+class DeleteAccountUseCase
 {
     public function __invoke($id): array
     {
-        $category = Category::firstWhere('id', $id) ?? '';
-        if (!$category) {
+        $account = User::firstWhere('id', $id) ?? '';
+        if (!$account) {
             return [
                 'status' => GlobalConst::STATUS_ERROR,
                 'error' => [
                     'code' => GlobalConst::IS_EMPTY,
-                    'message' => 'Danh mục không tồn tại!'
+                    'message' => 'Tài khoản không tồn tại!'
                 ]
             ];
         }
-        $delete_category = $category->delete();
-        if (!$delete_category) {
+        $delete_account = $account->delete();
+        if (!$delete_account) {
             return [
                 'status' => GlobalConst::STATUS_ERROR,
                 'error' => [
                     'code' => GlobalConst::DELETE_FAILED,
-                    'message' => 'Xóa danh mục không thành công!'
+                    'message' => 'Xóa tài khoản không thành công!'
                 ]
             ];
         }

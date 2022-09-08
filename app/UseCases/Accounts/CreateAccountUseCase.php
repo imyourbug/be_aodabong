@@ -2,29 +2,31 @@
 
 declare(strict_types=1);
 
-namespace App\UseCases\Categories;
+namespace App\UseCases\Accounts;
 
 use App\Const\GlobalConst;
-use App\Models\Category;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
-class CreateCategoryUseCase
+class CreateAccountUseCase
 {
     public function __invoke($params): array
     {
-        $category = Category::create($params);
-        if (!$category) {
+        $params['password'] = Hash::make($params['password']);
+        $account = User::create($params);
+        if (!$account) {
             return [
                 'status' => GlobalConst::STATUS_ERROR,
                 'error' => [
                     'code' => GlobalConst::CREATE_FAILED,
-                    'message' => 'Thêm danh mục sản phẩm không thành công!'
+                    'message' => 'Thêm tài khoản không thành công!'
                 ]
             ];
         }
 
         return [
             'status' => GlobalConst::STATUS_OK,
-            'category' => $category
+            'account' => $account
         ];
     }
 }

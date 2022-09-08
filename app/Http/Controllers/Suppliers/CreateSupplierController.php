@@ -2,22 +2,19 @@
 
 declare(strict_types=1);
 
-namespace App\Http\Controllers\Categories;
+namespace App\Http\Controllers\Suppliers;
 
 use App\Http\Controllers\BaseController;
-use App\Http\Requests\Categories\UpdateCategoryRequest;
-use App\Http\Resources\Categories\UpdateCategoryResource;
-use App\UseCases\Categories\UpdateCategoryUseCase;
-use Exception;
+use App\Http\Requests\Suppliers\CreateSupplierRequest;
+use App\UseCases\Suppliers\CreateSupplierUseCase;
 use Illuminate\Http\JsonResponse;
 
-class UpdateCategoryController extends BaseController
+class CreateSupplierController extends BaseController
 {
-    public function __invoke(UpdateCategoryRequest $request, UpdateCategoryUseCase $use_case): JsonResponse
+    public function __invoke(CreateSupplierRequest $request, CreateSupplierUseCase $use_case): JsonResponse
     {
         try {
             $params = [
-                'id' => $request->input('id'),
                 'name' => $request->input('name'),
                 'parent_id' => $request->input('parent_id'),
                 'description' => $request->input('description'),
@@ -25,7 +22,7 @@ class UpdateCategoryController extends BaseController
             ];
             $response = $use_case->__invoke($params);
 
-            return response()->json(new UpdateCategoryResource($response));
+            return response()->json(new ($response));
         } catch (Exception $e) {
             throw new Exception($e->getMessage(), $e->getCode());
         }

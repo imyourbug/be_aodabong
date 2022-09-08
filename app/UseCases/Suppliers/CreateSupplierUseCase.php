@@ -2,29 +2,29 @@
 
 declare(strict_types=1);
 
-namespace App\UseCases\Categories;
+namespace App\UseCases\Suppliers;
 
 use App\Const\GlobalConst;
-use App\Models\Category;
+use App\Models\Supplier;
 
-class CreateCategoryUseCase
+class CreateSupplierUseCase
 {
     public function __invoke($params): array
     {
-        $category = Category::create($params);
-        if (!$category) {
+        $supplier = Supplier::create($params);
+        if (!$supplier) {
             return [
                 'status' => GlobalConst::STATUS_ERROR,
                 'error' => [
                     'code' => GlobalConst::CREATE_FAILED,
-                    'message' => 'Thêm danh mục sản phẩm không thành công!'
+                    'message' => 'Thêm nhà sản xuất không thành công!'
                 ]
             ];
         }
 
         return [
             'status' => GlobalConst::STATUS_OK,
-            'category' => $category
+            'supplier' => $supplier
         ];
     }
 }

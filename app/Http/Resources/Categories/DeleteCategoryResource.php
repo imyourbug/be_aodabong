@@ -9,7 +9,7 @@ use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Http\Request;
 use JsonSerializable;
 
-class UpdateCategoryResource extends BaseResource
+class DeleteCategoryResource extends BaseResource
 {
     /**
      * Transform the resource into an array.
