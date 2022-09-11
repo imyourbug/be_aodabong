@@ -6,25 +6,27 @@ namespace App\UseCases\Categories;
 
 use App\Const\GlobalConst;
 use App\Models\Category;
+use Exception;
 
 class CreateCategoryUseCase
 {
     public function __invoke($params): array
     {
-        $category = Category::create($params);
-        if (!$category) {
+        try {
+            $category = Category::create($params);
+
+            return [
+                'status' => GlobalConst::STATUS_OK,
+                'category' => $category
+            ];
+        } catch (Exception $e) {
             return [
                 'status' => GlobalConst::STATUS_ERROR,
                 'error' => [
                     'code' => GlobalConst::CREATE_FAILED,
-                    'message' => 'Thêm danh mục sản phẩm không thành công!'
+                    'message' => $e->getMessage()
                 ]
             ];
         }
-
-        return [
-            'status' => GlobalConst::STATUS_OK,
-            'category' => $category
-        ];
     }
 }

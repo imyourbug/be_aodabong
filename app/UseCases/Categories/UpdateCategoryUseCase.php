@@ -6,34 +6,36 @@ namespace App\UseCases\Categories;
 
 use App\Const\GlobalConst;
 use App\Models\Category;
+use Exception;
 
 class UpdateCategoryUseCase
 {
     public function __invoke($params): array
     {
-        $category = Category::firstWhere('id', $params['id']) ?? '';
-        if (!$category) {
+        try {
+            $category = Category::firstWhere('id', $params['id']) ?? '';
+            if (!$category) {
+                return [
+                    'status' => GlobalConst::STATUS_ERROR,
+                    'error' => [
+                        'code' => GlobalConst::IS_EMPTY,
+                        'message' => 'Danh mục không tồn tại!'
+                    ]
+                ];
+            }
+            $category->update($params);
+
             return [
-                'status' => GlobalConst::STATUS_ERROR,
-                'error' => [
-                    'code' => GlobalConst::IS_EMPTY,
-                    'message' => 'Danh mục không tồn tại!'
-                ]
+                'status' => GlobalConst::STATUS_OK
             ];
-        }
-        $update_category = $category->update($params);
-        if (!$update_category) {
+        } catch (Exception $e) {
             return [
                 'status' => GlobalConst::STATUS_ERROR,
                 'error' => [
                     'code' => GlobalConst::UPDATE_FAILED,
-                    'message' => 'Cập nhật không thành công!'
+                    'message' => $e->getMessage()
                 ]
             ];
         }
-
-        return [
-            'status' => GlobalConst::STATUS_OK
-        ];
     }
 }

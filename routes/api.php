@@ -14,9 +14,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
+
+#Admin
 
 #categories
 Route::group(['prefix' => 'categories', 'namespace' => 'App\Http\Controllers\Categories', 'as' => 'categories.'], function () {
@@ -38,6 +40,51 @@ Route::group(['prefix' => 'accounts', 'namespace' => 'App\Http\Controllers\Accou
 Route::group(['prefix' => 'suppliers', 'namespace' => 'App\Http\Controllers\Suppliers', 'as' => 'suppliers.'], function () {
     Route::get('list', 'GetAllSuppliersController');
     Route::post('create', 'CreateSupplierController');
-    // Route::put('update', 'UpdateSupplierController');
-    // Route::delete('delete', 'DeleteSupplierController');
+    Route::put('update', 'UpdateSupplierController');
+    Route::delete('delete', 'DeleteSupplierController');
+});
+
+#customers
+Route::group(['prefix' => 'customers', 'namespace' => 'App\Http\Controllers\Customers', 'as' => 'customers.'], function () {
+    Route::get('list', 'GetAllCustomersController');
+    Route::post('create', 'CreateCustomerController');
+    Route::put('update', 'UpdateCustomerController');
+    Route::delete('delete', 'DeleteCustomerController');
+});
+
+#products
+Route::group(['prefix' => 'products', 'namespace' => 'App\Http\Controllers\Products', 'as' => 'products.'], function () {
+    Route::get('list', 'GetAllProductsController');
+    Route::post('create', 'CreateProductController');
+    Route::put('update', 'UpdateProductController');
+    Route::delete('delete', 'DeleteProductController');
+});
+
+#vouchers
+Route::group(['prefix' => 'vouchers', 'namespace' => 'App\Http\Controllers\Vouchers', 'as' => 'vouchers.'], function () {
+    Route::get('list', 'GetAllVouchersController');
+    Route::post('create', 'CreateVoucherController');
+    Route::put('update', 'UpdateVoucherController');
+    Route::delete('delete', 'DeleteVoucherController');
+});
+
+#slides
+Route::group(['prefix' => 'slides', 'namespace' => 'App\Http\Controllers\Slides', 'as' => 'slides.'], function () {
+    Route::get('list', 'GetAllSlidesController');
+    Route::post('create', 'CreateSlideController');
+    Route::put('update', 'UpdateSlideController');
+    Route::delete('delete', 'DeleteSlideController');
+});
+
+#upload image
+Route::group(['prefix' => 'uploads', 'namespace' => 'App\Http\Controllers\Uploads', 'as' => 'uploads.'], function () {
+    Route::post('image', 'UploadImageController');
+});
+
+#User
+
+Route::group(['prefix' => 'users', 'namespace' => 'App\Http\Controllers\Users', 'as' => 'users.'], function () {
+    Route::get('list_product_group', 'GetAllProductGroupController');
+    Route::get('category/{id}', 'GetProductByCategoryIdController');
+    Route::get('product/{id}', 'GetProductByIdController');
 });
