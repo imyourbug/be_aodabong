@@ -8,26 +8,21 @@ use App\Http\Controllers\BaseController;
 use App\Http\Requests\Categories\UpdateCategoryRequest;
 use App\Http\Resources\Categories\UpdateCategoryResource;
 use App\UseCases\Categories\UpdateCategoryUseCase;
-use Exception;
 use Illuminate\Http\JsonResponse;
 
 class UpdateCategoryController extends BaseController
 {
     public function __invoke(UpdateCategoryRequest $request, UpdateCategoryUseCase $use_case): JsonResponse
     {
-        try {
-            $params = [
-                'id' => $request->input('id'),
-                'name' => $request->input('name'),
-                'parent_id' => $request->input('parent_id'),
-                'description' => $request->input('description'),
-                'active' => $request->input('active'),
-            ];
-            $response = $use_case->__invoke($params);
+        $params = [
+            'id' => $request->input('id'),
+            'name' => $request->input('name'),
+            'parent_id' => $request->input('parent_id'),
+            'description' => $request->input('description'),
+            'active' => $request->input('active'),
+        ];
+        $response = $use_case->__invoke($params);
 
-            return response()->json(new UpdateCategoryResource($response));
-        } catch (Exception $e) {
-            throw new Exception($e->getMessage(), $e->getCode());
-        }
+        return response()->json(new UpdateCategoryResource($response));
     }
 }

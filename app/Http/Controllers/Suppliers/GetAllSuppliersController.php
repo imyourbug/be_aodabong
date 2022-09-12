@@ -11,12 +11,8 @@ class GetAllSuppliersController extends BaseController
 {
     public function __invoke(GetAllSuppliersUseCase $use_case): JsonResponse
     {
-        try {
-            $response = $use_case->__invoke();
+        $response = $use_case->__invoke();
 
-            return response()->json(new GetAllSuppliersResource($response));
-        } catch (Exception $e) {
-            throw new Exception($e->getMessage(), $e->getCode());
-        }
+        return response()->json(new GetAllSuppliersResource($response));
     }
 }

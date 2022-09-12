@@ -6,36 +6,38 @@ namespace App\UseCases\Accounts;
 
 use App\Const\GlobalConst;
 use App\Models\User;
+use Exception;
 use Illuminate\Support\Facades\Hash;
 
 class UpdateAccountUseCase
 {
     public function __invoke($params): array
     {
-        $account = User::firstWhere('id', $params['id']) ?? '';
-        if (!$account) {
+        try {
+            $account = User::firstWhere('id', $params['id']) ?? '';
+            if (!$account) {
+                return [
+                    'status' => GlobalConst::STATUS_ERROR,
+                    'error' => [
+                        'code' => GlobalConst::IS_EMPTY,
+                        'message' => 'Tài khoản không tồn tại!'
+                    ]
+                ];
+            }
+            $params['password'] = Hash::make($params['password']);
+            $account->update($params);
+
             return [
-                'status' => GlobalConst::STATUS_ERROR,
-                'error' => [
-                    'code' => GlobalConst::IS_EMPTY,
-                    'message' => 'Tài khoản không tồn tại!'
-                ]
+                'status' => GlobalConst::STATUS_OK
             ];
-        }
-        $params['password'] = Hash::make($params['password']);
-        $update_account = $account->update($params);
-        if (!$update_account) {
+        } catch (Exception $e) {
             return [
                 'status' => GlobalConst::STATUS_ERROR,
                 'error' => [
                     'code' => GlobalConst::UPDATE_FAILED,
-                    'message' => 'Cập nhật không thành công!'
+                    'message' => $e->getMessage()
                 ]
             ];
         }
-
-        return [
-            'status' => GlobalConst::STATUS_OK
-        ];
     }
 }

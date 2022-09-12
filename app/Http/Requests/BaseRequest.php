@@ -34,7 +34,7 @@ class BaseRequest extends FormRequest
         }
         throw new HttpResponseException(response()->json([
             'status' => 1,
-            'authtoken' => request()->header('authtoken'),
+            // 'authtoken' => request()->header('authtoken'),
             'error' => $errors,
         ]));
     }

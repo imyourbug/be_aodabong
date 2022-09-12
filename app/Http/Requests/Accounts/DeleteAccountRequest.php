@@ -13,7 +13,7 @@ class DeleteAccountRequest extends BaseRequest
      *
      * @return array<string, mixed>
      */
-    public function rules()
+    public function rules(): array
     {
         return [
             'id' => 'required|integer'

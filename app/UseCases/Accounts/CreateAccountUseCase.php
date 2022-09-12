@@ -6,27 +6,29 @@ namespace App\UseCases\Accounts;
 
 use App\Const\GlobalConst;
 use App\Models\User;
+use Exception;
 use Illuminate\Support\Facades\Hash;
 
 class CreateAccountUseCase
 {
     public function __invoke($params): array
     {
-        $params['password'] = Hash::make($params['password']);
-        $account = User::create($params);
-        if (!$account) {
+        try {
+            $params['password'] = Hash::make($params['password']);
+            $account = User::create($params);
+
+            return [
+                'status' => GlobalConst::STATUS_OK,
+                'account' => $account
+            ];
+        } catch (Exception $e) {
             return [
                 'status' => GlobalConst::STATUS_ERROR,
                 'error' => [
                     'code' => GlobalConst::CREATE_FAILED,
-                    'message' => 'Thêm tài khoản không thành công!'
+                    'message' => $e->getMessage()
                 ]
             ];
         }
-
-        return [
-            'status' => GlobalConst::STATUS_OK,
-            'account' => $account
-        ];
     }
 }
