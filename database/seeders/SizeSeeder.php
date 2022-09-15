@@ -27,15 +27,15 @@ class SizeSeeder extends Seeder
             [
                 'size' => 'XXL',
             ],
-            [
-                'size' => '29',
-            ],
-            [
-                'size' => '30',
-            ],
-            [
-                'size' => '31',
-            ],
+            // [
+            //     'size' => '29',
+            // ],
+            // [
+            //     'size' => '30',
+            // ],
+            // [
+            //     'size' => '31',
+            // ],
         ];
 
         try {

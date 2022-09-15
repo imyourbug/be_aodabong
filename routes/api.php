@@ -76,10 +76,22 @@ Route::group(['prefix' => 'slides', 'namespace' => 'App\Http\Controllers\Slides'
     Route::delete('delete', 'DeleteSlideController');
 });
 
+#colors
+Route::group(['prefix' => 'colors', 'namespace' => 'App\Http\Controllers\Colors', 'as' => 'colors.'], function () {
+    Route::get('list', 'GetAllColorsController');
+});
+
+#sizes
+Route::group(['prefix' => 'sizes', 'namespace' => 'App\Http\Controllers\Sizes', 'as' => 'sizes.'], function () {
+    Route::get('list', 'GetAllSizesController');
+});
+
+
 #upload image
 Route::group(['prefix' => 'uploads', 'namespace' => 'App\Http\Controllers\Uploads', 'as' => 'uploads.'], function () {
     Route::post('image', 'UploadImageController');
 });
+
 
 #User
 Route::group(['prefix' => 'users', 'namespace' => 'App\Http\Controllers\Users', 'as' => 'users.'], function () {

@@ -26,7 +26,8 @@ class GetProductByIdUseCase
             'status' => GlobalConst::STATUS_OK,
             'data' => [
                 'product' => $product,
-                'detail' => $product->product_details
+                'details' => $product->product_details,
+                'other_products' => Product::where('id', '<>', $id)->get() ?? []
             ]
         ];
     }

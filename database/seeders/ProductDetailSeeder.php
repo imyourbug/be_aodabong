@@ -18,43 +18,61 @@ class ProductDetailSeeder extends Seeder
         $details = [
             [
                 'product_id' => 1,
-                'code_color' => '#5FAB44',
+                'code_color' => '#F39402',
                 'code_size' => 'S',
                 'unit_in_stock' => 9
             ],
             [
                 'product_id' => 1,
-                'code_color' => '#E83023',
+                'code_color' => '#F39402',
                 'code_size' => 'M',
                 'unit_in_stock' => 8
             ],
             [
+                'product_id' => 1,
+                'code_color' => '#FFFFFF',
+                'code_size' => 'S',
+                'unit_in_stock' => 3
+            ],
+            [
+                'product_id' => 1,
+                'code_color' => '#2C3E50',
+                'code_size' => 'XXL',
+                'unit_in_stock' => 24
+            ],
+            [
+                'product_id' => 1,
+                'code_color' => '#F8228A',
+                'code_size' => 'M',
+                'unit_in_stock' => 102
+            ],
+            [
                 'product_id' => 2,
-                'code_color' => '#5FAB44',
+                'code_color' => '#F62612',
                 'code_size' => 'XL',
                 'unit_in_stock' => 9
             ],
             [
                 'product_id' => 2,
-                'code_color' => '#E83023',
+                'code_color' => '#F39402',
                 'code_size' => 'L',
                 'unit_in_stock' => 9
             ],
             [
                 'product_id' => 3,
-                'code_color' => '#5FAB44',
+                'code_color' => '#1145F6',
                 'code_size' => 'S',
                 'unit_in_stock' => 9
             ],
             [
                 'product_id' => 4,
-                'code_color' => '#3C5BA6',
+                'code_color' => '#1145F6',
                 'code_size' => 'S',
                 'unit_in_stock' => 34
             ],
             [
                 'product_id' => 5,
-                'code_color' => '#EBE438',
+                'code_color' => '#F62612',
                 'code_size' => 'XL',
                 'unit_in_stock' => 11
             ],
