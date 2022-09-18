@@ -2,34 +2,33 @@
 
 declare(strict_types=1);
 
-namespace App\UseCases\Users;
+namespace App\UseCases\Clients;
 
 use App\Const\GlobalConst;
 use App\Models\Product;
 
-class GetProductByCategoryIdUseCase
+class GetProductByIdUseCase
 {
     public function __invoke($id): array
     {
-        $products = Product::where('category_id', $id)->get();
-        if ($products->isEmpty()) {
+        $product = Product::find($id) ?? '';
+        if (!$product) {
             return [
                 'status' => GlobalConst::STATUS_ERROR,
                 'error' => [
                     'code' => GlobalConst::IS_EMPTY,
-                    'message' => 'Danh sách sản phẩm trống!'
+                    'message' => 'Sản phẩm không tồn tại!'
                 ]
             ];
         }
 
         return [
             'status' => GlobalConst::STATUS_OK,
-            'data' => $products
+            'data' => [
+                'product' => $product,
+                'details' => $product->product_details,
+                'other_products' => Product::where('id', '<>', $id)->get() ?? []
+            ]
         ];
-    }
-
-    public function getAllProductsByCategoryId($category_id)
-    {
-        return Product::where('category_id', $category_id)->get();
     }
 }

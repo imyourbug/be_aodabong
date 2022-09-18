@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\UseCases\Users;
+namespace App\UseCases\Clients;
 
 use App\Const\GlobalConst;
 use App\Models\Category;

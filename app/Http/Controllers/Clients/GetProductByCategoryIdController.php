@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace App\Http\Controllers\Users;
+namespace App\Http\Controllers\Clients;
 
 use App\Http\Controllers\BaseController;
-use App\Http\Resources\Users\GetProductByCategoryIdResource;
-use App\UseCases\Users\GetProductByCategoryIdUseCase;
+use App\Http\Resources\Clients\GetProductByCategoryIdResource;
+use App\UseCases\Clients\GetProductByCategoryIdUseCase;
 use Illuminate\Http\JsonResponse;
 
 class GetProductByCategoryIdController extends BaseController

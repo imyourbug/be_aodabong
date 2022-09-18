@@ -24,8 +24,8 @@ class GetAllVouchersResource extends BaseResource
             $this->mergeWhen(isset($this['error']), [
                 'error' => $this['error'] ?? null
             ]),
-            $this->mergeWhen(isset($this['vouchers']), [
-                'vouchers' => $this['vouchers'] ?? null
+            $this->mergeWhen(isset($this['data']), [
+                'data' => $this['data'] ?? null
             ])
         ];
     }

@@ -18,7 +18,8 @@ class UpdateVoucherRequest extends BaseRequest
         return [
             'id' => 'required|integer',
             'name' => 'required|string',
-            'discount' => 'required|integer|max:100|min:0'
+            'discount' => 'required|integer|max:100|min:0',
+            'active' => 'required|in:0,1'
         ];
     }
 }

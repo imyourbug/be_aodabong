@@ -94,8 +94,9 @@ Route::group(['prefix' => 'uploads', 'namespace' => 'App\Http\Controllers\Upload
 
 
 #User
-Route::group(['prefix' => 'users', 'namespace' => 'App\Http\Controllers\Users', 'as' => 'users.'], function () {
+Route::group(['prefix' => 'clients', 'namespace' => 'App\Http\Controllers\Clients', 'as' => 'clients.'], function () {
     Route::get('list_product_group', 'GetAllProductGroupController');
     Route::get('category/{id}', 'GetProductByCategoryIdController');
     Route::get('product/{id}', 'GetProductByIdController');
+    Route::get('details/list', 'GetAllDetailProductController');
 });

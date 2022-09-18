@@ -2,29 +2,29 @@
 
 declare(strict_types=1);
 
-namespace App\UseCases\Vouchers;
+namespace App\UseCases\Clients;
 
 use App\Const\GlobalConst;
-use App\Models\Voucher;
+use App\Models\ProductDetail;
 
-class GetAllVouchersUseCase
+class GetAllDetailProductUseCase
 {
     public function __invoke(): array
     {
-        $vouchers = Voucher::get();
-        if ($vouchers->isEmpty()) {
+        $details = ProductDetail::orderByDesc('id')->get();
+        if ($details->isEmpty()) {
             return [
                 'status' => GlobalConst::STATUS_ERROR,
                 'error' => [
                     'code' => GlobalConst::IS_EMPTY,
-                    'message' => 'Danh sách khuyến mãi trống!'
+                    'message' => 'Danh sách chi tiết sản phẩm trống!'
                 ]
             ];
         }
 
         return [
             'status' => GlobalConst::STATUS_OK,
-            'data' => $vouchers
+            'data' => $details
         ];
     }
 }

@@ -17,7 +17,8 @@ class UpdateVoucherController extends BaseController
         $params = [
             'id' => $request->input('id'),
             'name' => $request->input('name'),
-            'discount' => $request->input('discount')
+            'discount' => $request->input('discount'),
+            'active' => $request->input('active')
         ];
         $response = $use_case->__invoke($params);
 

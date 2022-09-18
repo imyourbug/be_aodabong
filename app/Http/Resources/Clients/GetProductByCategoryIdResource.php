@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace App\Http\Resources\Users;
+namespace App\Http\Resources\Clients;
 
 use App\Http\Resources\BaseResource;
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Http\Request;
 use JsonSerializable;
 
-class GetProductByIdResource extends BaseResource
+class GetProductByCategoryIdResource extends BaseResource
 {
     /**
      * Transform the resource into an array.

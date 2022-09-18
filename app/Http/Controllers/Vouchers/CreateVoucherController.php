@@ -16,7 +16,8 @@ class CreateVoucherController extends BaseController
     {
         $params = [
             'name' => $request->input('name'),
-            'discount' => $request->input('discount')
+            'discount' => $request->input('discount'),
+            'active' => $request->input('active')
         ];
         $response = $use_case->__invoke($params);
 
