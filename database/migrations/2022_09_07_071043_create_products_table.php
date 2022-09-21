@@ -18,8 +18,8 @@ return new class extends Migration
             $table->string('name');
             $table->unsignedBigInteger('category_id');
             $table->unsignedBigInteger('supplier_id');
-            $table->integer('price');
-            $table->integer('price_sale')->nullable();
+            // $table->integer('price');
+            // $table->integer('price_sale')->nullable();
             $table->integer('active');
             $table->string('thumb');
             $table->timestamps();

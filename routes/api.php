@@ -60,6 +60,14 @@ Route::group(['prefix' => 'products', 'namespace' => 'App\Http\Controllers\Produ
     Route::delete('delete', 'DeleteProductController');
 });
 
+#detail_products
+Route::group(['prefix' => 'detail_products', 'namespace' => 'App\Http\Controllers\DetailProducts', 'as' => 'detail_products.'], function () {
+    // Route::get('list', 'GetAllProductsController');
+    Route::post('create', 'CreateDetailProductController');
+    Route::put('update', 'UpdateDetailProductController');
+    Route::delete('delete', 'DeleteDetailProductController');
+});
+
 #vouchers
 Route::group(['prefix' => 'vouchers', 'namespace' => 'App\Http\Controllers\Vouchers', 'as' => 'vouchers.'], function () {
     Route::get('list', 'GetAllVouchersController');
@@ -92,11 +100,15 @@ Route::group(['prefix' => 'uploads', 'namespace' => 'App\Http\Controllers\Upload
     Route::post('image', 'UploadImageController');
 });
 
-
-#User
+#user
 Route::group(['prefix' => 'clients', 'namespace' => 'App\Http\Controllers\Clients', 'as' => 'clients.'], function () {
     Route::get('list_product_group', 'GetAllProductGroupController');
     Route::get('category/{id}', 'GetProductByCategoryIdController');
     Route::get('product/{id}', 'GetProductByIdController');
     Route::get('details/list', 'GetAllDetailProductController');
+});
+
+#token
+Route::group(['prefix' => 'authentications', 'namespace' => 'App\Http\Controllers\Authentications', 'as' => 'authentications.'], function () {
+    Route::post('login', 'LoginController');
 });

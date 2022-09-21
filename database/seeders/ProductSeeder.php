@@ -19,8 +19,6 @@ class ProductSeeder extends Seeder
                 'name' => 'Áo MU',
                 'category_id' => 1,
                 'supplier_id' => 1,
-                'price' => 340000,
-                'price_sale' => null,
                 'active' => 1,
                 'thumb' => '/storage/uploads/2022-09-09/06-31-04aoMU.PNG'
             ],
@@ -28,8 +26,6 @@ class ProductSeeder extends Seeder
                 'name' => 'Áo MC',
                 'category_id' => 1,
                 'supplier_id' => 1,
-                'price' => 350000,
-                'price_sale' => 250000,
                 'active' => 1,
                 'thumb' => '/storage/uploads/2022-09-09/06-31-04aoMU.PNG'
             ],
@@ -37,8 +33,6 @@ class ProductSeeder extends Seeder
                 'name' => 'Áo Liverpool',
                 'category_id' => 1,
                 'supplier_id' => 2,
-                'price' => 360000,
-                'price_sale' => null,
                 'active' => 1,
                 'thumb' => '/storage/uploads/2022-09-09/06-31-04aoMU.PNG'
             ],
@@ -46,8 +40,6 @@ class ProductSeeder extends Seeder
                 'name' => 'Áo Arsenal',
                 'category_id' => 1,
                 'supplier_id' => 3,
-                'price' => 370000,
-                'price_sale' => 189000,
                 'active' => 1,
                 'thumb' => '/storage/uploads/2022-09-09/06-31-04aoMU.PNG'
             ],
@@ -55,8 +47,20 @@ class ProductSeeder extends Seeder
                 'name' => 'Áo Tottenham',
                 'category_id' => 1,
                 'supplier_id' => 4,
-                'price' => 330000,
-                'price_sale' => 320000,
+                'active' => 1,
+                'thumb' => '/storage/uploads/2022-09-09/06-31-04aoMU.PNG'
+            ],
+            [
+                'name' => 'Quần Gucci',
+                'category_id' => 2,
+                'supplier_id' => 4,
+                'active' => 1,
+                'thumb' => '/storage/uploads/2022-09-09/06-31-04aoMU.PNG'
+            ],
+            [
+                'name' => 'Quần Louis Vuitton',
+                'category_id' => 2,
+                'supplier_id' => 4,
                 'active' => 1,
                 'thumb' => '/storage/uploads/2022-09-09/06-31-04aoMU.PNG'
             ]

@@ -13,7 +13,10 @@ class ProductDetail extends Model
         'product_id',
         'code_color',
         'code_size',
-        'unit_in_stock'
+        'price',
+        'price_sale',
+        'unit_in_stock',
+        'thumb'
     ];
 
     public function order_details()

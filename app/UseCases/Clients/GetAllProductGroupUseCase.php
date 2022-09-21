@@ -26,12 +26,39 @@ class GetAllProductGroupUseCase
             $data[] = [
                 'category_id' => $category->id,
                 'category_name' => $category->name,
-                'products' => $category->products ?? []
+                'products' => $this->getDetailProduct($category->products) ?? [],
+                // 'products' => $category->products ?? [],
+
             ];
         };
         return [
             'status' => GlobalConst::STATUS_OK,
             'data' => $data
         ];
+    }
+
+    public function getDetailProduct($list_product)
+    {
+        $products = [];
+        foreach ($list_product as $product) {
+            $products[] =  [
+                'product' => $product,
+                'max_price' => $this->getMaxPrice($product->product_details),
+                'min_price' => $this->getMinPrice($product->product_details)
+            ];
+        };
+        return $products;
+    }
+
+    public function getMaxPrice($details)
+    {
+        $detail = collect($details)->sortBy('price')->last();
+        return $detail->price_sale ?? $detail->price;
+    }
+
+    public function getMinPrice($details)
+    {
+        $detail = collect($details)->sortByDesc('price')->last();
+        return $detail->price_sale ?? $detail->price;
     }
 }

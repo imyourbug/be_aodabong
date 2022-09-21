@@ -10,4 +10,5 @@ class GlobalConst
     public const CREATE_FAILED = 101;
     public const UPDATE_FAILED = 102;
     public const DELETE_FAILED = 103;
+    public const LOGIN_FAILED = 104;
 }

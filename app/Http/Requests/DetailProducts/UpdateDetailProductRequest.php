@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace App\Http\Requests\Products;
+namespace App\Http\Requests\DetailProducts;
 
 use App\Http\Requests\BaseRequest;
 
-class CreateProductRequest extends BaseRequest
+class UpdateDetailProductRequest extends BaseRequest
 {
     /**
      * Get the validation rules that apply to the request.
@@ -16,10 +16,10 @@ class CreateProductRequest extends BaseRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|string',
-            'category_id' => 'required|integer',
-            'supplier_id' => 'required|integer',
-            'active' => 'required|integer',
+            'id' => 'required|integer',
+            'price' => 'required|integer',
+            'price_sale' => 'nullable|integer',
+            'unit_in_stock' => 'required|integer',
             'thumb' => 'required|string'
         ];
     }
