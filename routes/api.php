@@ -106,6 +106,7 @@ Route::group(['prefix' => 'clients', 'namespace' => 'App\Http\Controllers\Client
     Route::get('category/{id}', 'GetProductByCategoryIdController');
     Route::get('product/{id}', 'GetProductByIdController');
     Route::get('details/list', 'GetAllDetailProductController');
+    Route::get('search/{key_word}', 'SearchProductByKeyWordController');
 });
 
 #token

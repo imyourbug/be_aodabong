@@ -20,22 +20,11 @@ class LoginUseCase
                 ]
             ];
         }
-        $token = Auth::user()->createToken('auth_token')->accessToken;
-        if (!$token) {
-            return [
-                'status' => GlobalConst::STATUS_ERROR,
-                'error' => [
-                    'code' => GlobalConst::IS_EMPTY,
-                    'message' => 'Token trống!'
-                ]
-            ];
-        }
 
         return [
             'status' => GlobalConst::STATUS_OK,
             'data' => [
                 'user' => Auth::user(),
-                'token' => $token
             ]
         ];
     }
