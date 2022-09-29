@@ -11,14 +11,14 @@ class OrderDetail extends Model
 
     protected $fillable = [
         'order_id',
-        'product_id',
+        'product_detail_id',
         'quantity',
         'unit_price',
     ];
 
     public function product_detail()
     {
-        return $this->belongsTo(ProductDetail::class, 'customer_id', 'id');
+        return $this->belongsTo(ProductDetail::class, 'product_detail_id', 'id');
     }
 
     public function order()

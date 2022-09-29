@@ -22,7 +22,7 @@ class SearchProductByKeyWordUseCase
         }
 
         $data_product = [];
-        $products = Product::where('name', 'like', $key_word . '%')->get();
+        $products = Product::where('name', 'like', '%' . $key_word . '%')->get();
         foreach ($products as $product) {
             $data_product[] =  [
                 'product' => $product,
@@ -31,7 +31,7 @@ class SearchProductByKeyWordUseCase
             ];
         };
         $data_other = [];
-        $other_products = Product::where('name', 'not like', $key_word . '%')->get();
+        $other_products = Product::where('name', 'not like', '%' . $key_word . '%')->get();
         foreach ($other_products as $product) {
             $data_other[] =  [
                 'product' => $product,

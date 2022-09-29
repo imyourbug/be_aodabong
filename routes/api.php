@@ -100,16 +100,21 @@ Route::group(['prefix' => 'uploads', 'namespace' => 'App\Http\Controllers\Upload
     Route::post('image', 'UploadImageController');
 });
 
-#user
+#clients
 Route::group(['prefix' => 'clients', 'namespace' => 'App\Http\Controllers\Clients', 'as' => 'clients.'], function () {
     Route::get('list_product_group', 'GetAllProductGroupController');
     Route::get('category/{id}', 'GetProductByCategoryIdController');
     Route::get('product/{id}', 'GetProductByIdController');
     Route::get('details/list', 'GetAllDetailProductController');
     Route::get('search/{key_word}', 'SearchProductByKeyWordController');
+    // Route::post('check_out', 'CheckOutController');
+    Route::group(['prefix' => 'orders', 'namespace' => 'Orders', 'as' => 'orders.'], function () {
+        Route::post('create', 'CreateOrderController');
+    });
 });
 
 #token
 Route::group(['prefix' => 'authentications', 'namespace' => 'App\Http\Controllers\Authentications', 'as' => 'authentications.'], function () {
     Route::post('login', 'LoginController');
+    Route::post('change_password', 'ChangePasswordController');
 });

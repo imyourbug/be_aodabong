@@ -19,6 +19,7 @@ class LoginController extends BaseController
             'password' => $request->input('password')
         ];
         $response = $use_case->__invoke($params);
+
         return response()->json(new LoginResource($response));
     }
 }
