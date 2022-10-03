@@ -21,9 +21,12 @@ class UpdateAccountRequest extends BaseRequest
             'email' => 'required|email:dns,rfc',
             'password' => 'required|string|min:8',
             'role' => 'required|in:0,1',
+            'phone' => 'nullable|string|max:10',
             'avatar' => 'nullable|string',
-            'address' => 'nullable|string',
-            'phone' => 'nullable|string|max:10'
+            'province' => 'nullable|string',
+            'district' => 'nullable|string',
+            'ward' => 'nullable|string',
+            'street' => 'nullable|string'
         ];
     }
 }

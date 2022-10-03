@@ -19,10 +19,7 @@ class CreateAccountRequest extends BaseRequest
             'name' => 'required|string',
             'email' => 'required|email:dns,rfc|unique:users,email',
             'password' => 'required|string|min:8',
-            'role' => 'required|in:0,1',
-            'avatar' => 'nullable|string',
-            'address' => 'nullable|string',
-            'phone' => 'nullable|string|max:10'
+            'role' => 'required|in:0,1'
         ];
     }
 }

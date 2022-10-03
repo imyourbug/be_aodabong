@@ -23,8 +23,12 @@ class User extends Authenticatable
         'password',
         'role',
         'avatar',
-        'address',
-        'phone'
+        'phone',
+        'zip_code',
+        'province',
+        'district',
+        'ward',
+        'street',
     ];
 
     /**

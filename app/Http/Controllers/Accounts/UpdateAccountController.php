@@ -21,8 +21,12 @@ class UpdateAccountController extends BaseController
             'password' => $request->input('password'),
             'role' => (int) $request->input('role'),
             'avatar' => $request->input('avatar'),
-            'address' => $request->input('address'),
-            'phone' => $request->input('phone')
+            'phone' => $request->input('phone'),
+            'province' => $request->input('province'),
+            'district' => $request->input('district'),
+            'ward' => $request->input('ward'),
+            'street' => $request->input('street'),
+            'zip_code' => $request->input('zip_code')
         ];
         $response = $use_case->__invoke($params);
 

@@ -9,7 +9,7 @@ use App\Models\Product;
 
 class GetProductByCategoryIdUseCase
 {
-    public function __invoke($id): array
+    public function __invoke(int $id): array
     {
         $products = Product::where('category_id', $id)->get();
         if ($products->isEmpty()) {
@@ -28,7 +28,7 @@ class GetProductByCategoryIdUseCase
         ];
     }
 
-    public function getAllProductsByCategoryId($category_id)
+    public function getAllProductsByCategoryId(int $category_id)
     {
         return Product::where('category_id', $category_id)->get();
     }

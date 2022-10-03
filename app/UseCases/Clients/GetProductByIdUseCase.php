@@ -9,7 +9,7 @@ use App\Models\Product;
 
 class GetProductByIdUseCase
 {
-    public function __invoke($id): array
+    public function __invoke(int $id): array
     {
         $product = Product::find($id) ?? '';
         if (!$product) {

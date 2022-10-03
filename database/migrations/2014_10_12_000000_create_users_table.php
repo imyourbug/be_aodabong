@@ -21,9 +21,10 @@ return new class extends Migration
             $table->string('password');
             $table->integer('role')->default(0);
             $table->string('avatar')->nullable();
-            $table->string('address')->nullable();
-            $table->string('district')->nullable();
             $table->string('province')->nullable();
+            $table->string('district')->nullable();
+            $table->string('ward')->nullable();
+            $table->string('street')->nullable();
             $table->integer('zip_code')->nullable();
             $table->string('phone')->nullable();
             $table->rememberToken();

@@ -13,4 +13,5 @@ class GlobalConst
     public const LOGIN_FAILED = 104;
     public const CHECKOUT_FAILED = 105;
     public const INVALID_ERROR = 106;
+    public const UPLOAD_FAILED = 107;
 }

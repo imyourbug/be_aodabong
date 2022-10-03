@@ -16,7 +16,7 @@ class UploadImageRequest extends BaseRequest
     public function rules(): array
     {
         return [
-            'image_file' => 'required|dimensions:max_width=1024,max_height=1024|mimes:jpg,png'
+            'image_file' => 'required|dimensions:max_height:1024|dimensions:max_width:1024|mimes:jpg,png'
         ];
     }
 }

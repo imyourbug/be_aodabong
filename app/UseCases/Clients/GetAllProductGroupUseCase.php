@@ -31,6 +31,7 @@ class GetAllProductGroupUseCase
 
             ];
         };
+
         return [
             'status' => GlobalConst::STATUS_OK,
             'data' => $data
@@ -47,18 +48,21 @@ class GetAllProductGroupUseCase
                 'min_price' => $this->getMinPrice($product->product_details)
             ];
         };
+
         return $products;
     }
 
     public function getMaxPrice($details)
     {
         $detail = collect($details)->sortBy('price')->last();
+
         return $detail->price_sale ?? $detail->price;
     }
 
     public function getMinPrice($details)
     {
         $detail = collect($details)->sortByDesc('price')->last();
+
         return $detail->price_sale ?? $detail->price;
     }
 }
