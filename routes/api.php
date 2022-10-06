@@ -111,10 +111,19 @@ Route::group(['prefix' => 'clients', 'namespace' => 'App\Http\Controllers\Client
     Route::group(['prefix' => 'orders', 'namespace' => 'Orders', 'as' => 'orders.'], function () {
         Route::post('create', 'CreateOrderController');
     });
+    Route::put('info/update', 'UpdateInfoController');
 });
 
 #token
 Route::group(['prefix' => 'authentications', 'namespace' => 'App\Http\Controllers\Authentications', 'as' => 'authentications.'], function () {
     Route::post('login', 'LoginController');
     Route::post('change_password', 'ChangePasswordController');
+});
+
+#comments
+Route::group(['prefix' => 'comments', 'namespace' => 'App\Http\Controllers\Comments', 'as' => 'comments.'], function () {
+    Route::get('list', 'GetAllCommentsController');
+    Route::post('create', 'CreateCommentController');
+    Route::put('update', 'UpdateCommentController');
+    Route::delete('delete', 'DeleteCommentController');
 });
