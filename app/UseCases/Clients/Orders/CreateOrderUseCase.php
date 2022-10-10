@@ -8,6 +8,7 @@ use App\Const\GlobalConst;
 use App\Models\Customer;
 use App\Models\Order;
 use App\Models\OrderDetail;
+use App\Models\ProductDetail;
 use Exception;
 use Illuminate\Support\Facades\DB;
 
@@ -24,11 +25,13 @@ class CreateOrderUseCase
             $order = Order::create([
                 'customer_id' => $customer_id,
                 'status' => 0,
-                'discount' => $params['discount']
+                'discount' => $params['discount'],
+                'total_money' => $params['total_money']
             ]);
             // create order detail
             $order_id = $order->id ?? '';
             $data = [];
+            $ids = [];
             foreach ($params['carts'] as $product) {
                 $data[] = [
                     'order_id' => $order_id,
@@ -36,8 +39,17 @@ class CreateOrderUseCase
                     'quantity' => $product['quantity'],
                     'unit_price' => $product['unit_price']
                 ];
+                $ids[$product['detail_id']] = $product['quantity'];
             }
             OrderDetail::insert($data);
+            // decrease product quantity in stock
+            $details = ProductDetail::whereIn('id', array_keys($ids))->get();
+            foreach ($details as $product_detail) {
+                $new_quantity = $product_detail->unit_in_stock - $ids[$product_detail->id];
+                $product_detail->update([
+                    'unit_in_stock' => $new_quantity
+                ]);
+            }
         } catch (Exception $e) {
             DB::rollBack();
 

@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace App\Http\Resources\Authentications;
+namespace App\Http\Resources\Authentications\Socials;
 
 use App\Http\Resources\BaseResource;
 use Illuminate\Contracts\Support\Arrayable;
 use JsonSerializable;
 
-class ChangePasswordResource extends BaseResource
+class GoogleLoginResource extends BaseResource
 {
     /**
      * Transform the resource into an array.
@@ -22,6 +22,9 @@ class ChangePasswordResource extends BaseResource
             'status' => $this['status'],
             $this->mergeWhen(isset($this['error']), [
                 'error' => $this['error'] ?? null
+            ]),
+            $this->mergeWhen(isset($this['data']), [
+                'data' => $this['data'] ?? null
             ])
         ];
     }

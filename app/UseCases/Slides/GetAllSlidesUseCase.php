@@ -11,7 +11,7 @@ class GetAllSlidesUseCase
 {
     public function __invoke(): array
     {
-        $slides = Slide::get();
+        $slides = Slide::orderBy('sort_by')->get();
         if ($slides->isEmpty()) {
             return [
                 'status' => GlobalConst::STATUS_ERROR,

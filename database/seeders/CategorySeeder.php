@@ -34,17 +34,42 @@ class CategorySeeder extends Seeder
                 'active' => 1
             ],
             [
-                'name' => 'Găng',
+                'name' => 'Phụ kiện',
                 'parent_id' => 0,
                 'description' => '',
                 'active' => 1
             ],
             [
-                'name' => 'Cup',
-                'parent_id' => 0,
+                'name' => 'Găng',
+                'parent_id' => 4,
                 'description' => '',
                 'active' => 1
             ],
+            [
+                'name' => 'Cup',
+                'parent_id' => 4,
+                'description' => '',
+                'active' => 1
+            ],
+            [
+                'name' => 'Cup vàng',
+                'parent_id' => 6,
+                'description' => '',
+                'active' => 1
+            ],
+            [
+                'name' => 'Cup bạc',
+                'parent_id' => 6,
+                'description' => '',
+                'active' => 1
+            ],
+            [
+                'name' => 'Cup đồng',
+                'parent_id' => 6,
+                'description' => '',
+                'active' => 1
+            ],
+
         ];
 
         try {

@@ -22,7 +22,7 @@ class UploadImageUseCase
             );
             return [
                 'status' => GlobalConst::STATUS_OK,
-                'url' => '/storage/' . $pathFull . '/' . $file_name
+                'url' => env('DOMAIN') . '/storage/' . $pathFull . '/' . $file_name
             ];
         } catch (Exception $e) {
             return [

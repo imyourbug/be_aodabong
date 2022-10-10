@@ -1,19 +1,29 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Resources\Comments;
 
-use Illuminate\Http\Resources\Json\JsonResource;
+use App\Http\Resources\BaseResource;
+use Illuminate\Contracts\Support\Arrayable;
+use Illuminate\Http\Request;
+use JsonSerializable;
 
-class DeleteCommentResource extends JsonResource
+class DeleteCommentResource extends BaseResource
 {
     /**
      * Transform the resource into an array.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return array|\Illuminate\Contracts\Support\Arrayable|\JsonSerializable
+     * @param Request $request
+     * @return array|Arrayable|JsonSerializable
      */
-    public function toArray($request)
+    public function toArray($request): array|Arrayable|JsonSerializable
     {
-        return parent::toArray($request);
+        return [
+            'status' => $this['status'],
+            $this->mergeWhen(isset($this['error']), [
+                'error' => $this['error'] ?? null
+            ])
+        ];
     }
 }

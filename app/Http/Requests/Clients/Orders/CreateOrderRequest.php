@@ -23,6 +23,7 @@ class CreateOrderRequest extends BaseRequest
             'customer.note' => 'nullable|string',
             'status' => 'required|integer',
             'discount' => 'nullable|integer',
+            'total_money' => 'required|integer',
             'carts.*.detail_id' => 'required|integer',
             'carts.*.quantity' => 'required|integer',
             'carts.*.unit_price' => 'required|integer'

@@ -12,7 +12,8 @@ class Order extends Model
     protected $fillable = [
         'customer_id',
         'status',
-        'discount'
+        'discount',
+        'total_money'
     ];
 
     public function order_details()

@@ -8,7 +8,7 @@ use App\Http\Resources\BaseResource;
 use Illuminate\Contracts\Support\Arrayable;
 use JsonSerializable;
 
-class ChangePasswordResource extends BaseResource
+class ResetPasswordResource extends BaseResource
 {
     /**
      * Transform the resource into an array.

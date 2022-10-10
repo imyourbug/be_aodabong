@@ -19,6 +19,7 @@ class CreateOrderController extends BaseController
             'status' => $request->input('status'),
             'discount' => $request->input('discount'),
             'carts' => $request->input('carts'),
+            'total_money' => $request->input('total_money')
         ];
         $response = $use_case->__invoke($params);
 

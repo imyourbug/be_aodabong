@@ -114,10 +114,14 @@ Route::group(['prefix' => 'clients', 'namespace' => 'App\Http\Controllers\Client
     Route::put('info/update', 'UpdateInfoController');
 });
 
-#token
+#auth
 Route::group(['prefix' => 'authentications', 'namespace' => 'App\Http\Controllers\Authentications', 'as' => 'authentications.'], function () {
     Route::post('login', 'LoginController');
     Route::post('change_password', 'ChangePasswordController');
+    Route::group(['prefix' => 'socials', 'namespace' => 'Socials', 'as' => 'socials.'], function () {
+        Route::post('google_login', 'GoogleLoginController');
+    });
+    Route::post('reset_password', 'ResetPasswordController');
 });
 
 #comments

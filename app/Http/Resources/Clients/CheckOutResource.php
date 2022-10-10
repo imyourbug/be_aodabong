@@ -17,7 +17,7 @@ class CheckOutResource extends BaseResource
      * @param Request $request
      * @return array|Arrayable|JsonSerializable
      */
-    public function toArray($request): array
+    public function toArray($request): array|Arrayable|JsonSerializable
     {
         return [
             'status' => $this['status'],
