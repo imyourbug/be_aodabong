@@ -2,41 +2,52 @@
 
 declare(strict_types=1);
 
-namespace App\UseCases\Clients;
+namespace App\UseCases\Categories;
 
 use App\Const\GlobalConst;
 use App\Models\Category;
 
-class GetAllProductGroupUseCase
+class GetDetailCategoryUseCase
 {
-    public function __invoke(): array
+    public function __invoke(string $category_id): array
     {
-        $categories = Category::where('active', 1)->get();
-        if ($categories->isEmpty()) {
+        $category = Category::firstWhere('id', $category_id) ?? '';
+        if (!$category) {
             return [
                 'status' => GlobalConst::STATUS_ERROR,
                 'error' => [
                     'code' => GlobalConst::IS_EMPTY,
-                    'message' => 'Danh sách danh mục trống!'
+                    'message' => 'Danh mục không tồn tại!'
                 ]
             ];
         }
-        $data = [];
-        foreach ($categories as $category) {
-            $data[] = [
-                'category_id' => $category->id,
-                'category_name' => $category->name,
-                'parent_id' => $category->parent_id,
-                'products' => $this->getDetailProduct($category->products) ?? [],
-                // 'products' => $category->products ?? [],
-
-            ];
-        };
+        $categories = Category::get();
+        $result = [
+            'detail' => $category,
+            'children' => $this->getAllCategoryChild([], $categories, $category->id),
+            'products' => $this->getDetailProduct($category->products)
+        ];
 
         return [
             'status' => GlobalConst::STATUS_OK,
-            'data' => $data
+            'category' => $result
         ];
+    }
+
+    public function getAllCategoryChild($ids = [], $categories, $id_parent)
+    {
+        foreach ($categories as $category) {
+            if ($category->parent_id === $id_parent) {
+                array_push(
+                    $ids,
+                    $category
+                );
+                $id = $category->id;
+                unset($category);
+                $this->getAllCategoryChild($ids, $categories, $id);
+            }
+        }
+        return $ids;
     }
 
     public function getDetailProduct($list_product)

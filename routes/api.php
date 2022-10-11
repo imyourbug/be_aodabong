@@ -23,6 +23,7 @@ use Illuminate\Support\Facades\Route;
 #categories
 Route::group(['prefix' => 'categories', 'namespace' => 'App\Http\Controllers\Categories', 'as' => 'categories.'], function () {
     Route::get('list', 'GetAllCategoriesController');
+    Route::get('detail/{category_id}', 'GetDetailCategoryController');
     Route::post('create', 'CreateCategoryController');
     Route::put('update', 'UpdateCategoryController');
     Route::delete('delete', 'DeleteCategoryController');
