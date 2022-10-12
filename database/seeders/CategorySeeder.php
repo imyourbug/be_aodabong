@@ -19,55 +19,64 @@ class CategorySeeder extends Seeder
                 'name' => 'Áo',
                 'parent_id' => 0,
                 'description' => '',
-                'active' => 1
+                'active' => 1,
+                'slug' => 'ao'
             ],
             [
                 'name' => 'Quần',
                 'parent_id' => 0,
                 'description' => '',
-                'active' => 1
+                'active' => 1,
+                'slug' => 'quan'
             ],
             [
                 'name' => 'Giày',
                 'parent_id' => 0,
                 'description' => '',
-                'active' => 1
+                'active' => 1,
+                'slug' => 'giay'
             ],
             [
                 'name' => 'Phụ kiện',
                 'parent_id' => 0,
                 'description' => '',
-                'active' => 1
+                'active' => 1,
+                'slug' => 'phu-kien'
             ],
             [
                 'name' => 'Găng',
                 'parent_id' => 4,
                 'description' => '',
-                'active' => 1
+                'active' => 1,
+                'slug' => 'gang'
             ],
             [
                 'name' => 'Cup',
                 'parent_id' => 4,
                 'description' => '',
-                'active' => 1
+                'active' => 1,
+                'slug' => 'cup'
             ],
             [
                 'name' => 'Cup vàng',
                 'parent_id' => 6,
                 'description' => '',
-                'active' => 1
+                'active' => 1,
+                'slug' => 'cup-vang'
             ],
             [
                 'name' => 'Cup bạc',
                 'parent_id' => 6,
                 'description' => '',
-                'active' => 1
+                'active' => 1,
+                'slug' => 'cup-bac'
             ],
             [
                 'name' => 'Cup đồng',
                 'parent_id' => 6,
                 'description' => '',
-                'active' => 1
+                'active' => 1,
+                'slug' => 'cup-dong'
             ],
 
         ];

@@ -19,6 +19,7 @@ return new class extends Migration
             $table->integer('parent_id');
             $table->string('description')->nullable();
             $table->integer('active');
+            $table->string('slug');
             $table->timestamps();
         });
     }

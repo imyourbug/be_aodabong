@@ -7,6 +7,7 @@ namespace App\UseCases\Categories;
 use App\Const\GlobalConst;
 use App\Models\Category;
 use Exception;
+use Illuminate\Support\Str;
 
 class UpdateCategoryUseCase
 {
@@ -23,6 +24,7 @@ class UpdateCategoryUseCase
                     ]
                 ];
             }
+            $params['slug'] = Str::slug($params['name'], '-');
             $category->update($params);
 
             return [
