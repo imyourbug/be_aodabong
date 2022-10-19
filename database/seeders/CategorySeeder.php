@@ -78,6 +78,41 @@ class CategorySeeder extends Seeder
                 'active' => 1,
                 'slug' => 'cup-dong'
             ],
+            [
+                'name' => 'Quần nữ',
+                'parent_id' => 2,
+                'description' => '',
+                'active' => 1,
+                'slug' => 'quan-nu'
+            ],
+            [
+                'name' => 'Quần nam',
+                'parent_id' => 2,
+                'description' => '',
+                'active' => 1,
+                'slug' => 'quan-nam'
+            ],
+            [
+                'name' => 'Quần đùi nam',
+                'parent_id' => 11,
+                'description' => '',
+                'active' => 1,
+                'slug' => 'quan-dui-nam'
+            ],
+            [
+                'name' => 'Quần âu nam',
+                'parent_id' => 11,
+                'description' => '',
+                'active' => 1,
+                'slug' => 'quan-au-nam'
+            ],
+            [
+                'name' => 'Quần bò nam',
+                'parent_id' => 11,
+                'description' => '',
+                'active' => 1,
+                'slug' => 'quan-bo-nam'
+            ],
 
         ];
 

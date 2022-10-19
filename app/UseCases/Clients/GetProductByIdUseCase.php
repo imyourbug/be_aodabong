@@ -6,6 +6,7 @@ namespace App\UseCases\Clients;
 
 use App\Const\GlobalConst;
 use App\Models\Product;
+use App\Models\Rate;
 
 class GetProductByIdUseCase
 {
@@ -29,6 +30,12 @@ class GetProductByIdUseCase
                 $cmt->user
             ];
         }
+        $rates = Rate::where('product_id', $id)->get();
+        $sum = 0;
+        foreach ($rates as $rate) {
+            $sum += $rate->level_star;
+        }
+        $level_star = $sum === 0 ? 0 : round($sum / $rates->count(), 1);
 
         $other_products = Product::where('id', '<>', $id)->get() ?? [];
         return [
@@ -37,7 +44,8 @@ class GetProductByIdUseCase
                 'product' => $product,
                 'details' => $product->product_details,
                 'data_comments' => $data_comments,
-                'other_products' => $other_products
+                'other_products' => $other_products,
+                'level_star' => $level_star
             ]
         ];
     }

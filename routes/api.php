@@ -108,9 +108,11 @@ Route::group(['prefix' => 'clients', 'namespace' => 'App\Http\Controllers\Client
     Route::get('product/{id}', 'GetProductByIdController');
     Route::get('details/list', 'GetAllDetailProductController');
     Route::get('search/{key_word}', 'SearchProductByKeyWordController');
-    // Route::post('check_out', 'CheckOutController');
     Route::group(['prefix' => 'orders', 'namespace' => 'Orders', 'as' => 'orders.'], function () {
         Route::post('create', 'CreateOrderController');
+    });
+    Route::group(['prefix' => 'rates', 'namespace' => 'Rates', 'as' => 'rates.'], function () {
+        Route::post('product', 'RatingProductController');
     });
     Route::put('info/update', 'UpdateInfoController');
 });

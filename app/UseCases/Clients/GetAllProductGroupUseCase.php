@@ -24,9 +24,7 @@ class GetAllProductGroupUseCase
         $data = [];
         foreach ($categories as $category) {
             $data[] = [
-                'category_id' => $category->id,
-                'category_name' => $category->name,
-                'parent_id' => $category->parent_id,
+                'category' => $category,
                 'products' => $this->getDetailProduct($category->products) ?? [],
                 // 'products' => $category->products ?? [],
 
