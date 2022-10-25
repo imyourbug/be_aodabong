@@ -12,15 +12,6 @@ class GetAllCategoriesUseCase
     public function __invoke(): array
     {
         $categories = Category::get();
-        if ($categories->isEmpty()) {
-            return [
-                'status' => GlobalConst::STATUS_ERROR,
-                'error' => [
-                    'code' => GlobalConst::IS_EMPTY,
-                    'message' => 'Danh mục sản phẩm trống!'
-                ]
-            ];
-        }
 
         return [
             'status' => GlobalConst::STATUS_OK,

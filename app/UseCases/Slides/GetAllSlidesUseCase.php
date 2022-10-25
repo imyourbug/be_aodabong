@@ -12,15 +12,6 @@ class GetAllSlidesUseCase
     public function __invoke(): array
     {
         $slides = Slide::orderBy('sort_by')->get();
-        if ($slides->isEmpty()) {
-            return [
-                'status' => GlobalConst::STATUS_ERROR,
-                'error' => [
-                    'code' => GlobalConst::IS_EMPTY,
-                    'message' => 'Danh sách slide trống!'
-                ]
-            ];
-        }
 
         return [
             'status' => GlobalConst::STATUS_OK,

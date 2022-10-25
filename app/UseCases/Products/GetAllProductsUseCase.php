@@ -11,16 +11,7 @@ class GetAllProductsUseCase
 {
     public function __invoke(): array
     {
-        $products = Product::get();
-        if ($products->isEmpty()) {
-            return [
-                'status' => GlobalConst::STATUS_ERROR,
-                'error' => [
-                    'code' => GlobalConst::IS_EMPTY,
-                    'message' => 'Danh sách sản phẩm trống!'
-                ]
-            ];
-        }
+        $products = Product::with("category")->with("supplier")->get();
 
         return [
             'status' => GlobalConst::STATUS_OK,

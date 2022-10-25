@@ -59,6 +59,7 @@ Route::group(['prefix' => 'products', 'namespace' => 'App\Http\Controllers\Produ
     Route::post('create', 'CreateProductController');
     Route::put('update', 'UpdateProductController');
     Route::delete('delete', 'DeleteProductController');
+    Route::delete('delete_all', 'DeleteAllProductController');
 });
 
 #detail_products

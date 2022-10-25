@@ -8,7 +8,6 @@ use App\Const\GlobalConst;
 use App\Models\Social;
 use App\Models\User;
 use Exception;
-use Illuminate\Support\Facades\Auth;
 
 class GoogleLoginUseCase
 {
