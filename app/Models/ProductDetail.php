@@ -13,8 +13,6 @@ class ProductDetail extends Model
         'product_id',
         'code_color',
         'code_size',
-        'price',
-        'price_sale',
         'unit_in_stock',
         'thumb'
     ];

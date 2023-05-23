@@ -13,6 +13,7 @@ class CreateProductUseCase
     public function __invoke($params): array
     {
         try {
+            $params['price_sale'] = $params['price_sale'] !== null ? (int) $params['price_sale'] : null;
             $product = Product::create($params);
 
             return [

@@ -15,10 +15,12 @@ class UpdateDetailProductController extends BaseController
     public function __invoke(UpdateDetailProductRequest $request, UpdateDetailProductUseCase $use_case): JsonResponse
     {
         $params = [
-            'id' => $request->input('id'),
+            'product_id' => $request->input('product_id'),
+            'code_size' => $request->input('code_size'),
+            'code_color' => $request->input('code_color'),
             'price' => (int) $request->input('price'),
-            'price_sale' => (int) $request->input('price_sale') ?? null,
-            'unit_in_stock' => $request->input('unit_in_stock'),
+            'price_sale' => $request->input('price_sale'),
+            'unit_in_stock' => (int) $request->input('unit_in_stock'),
             'thumb' => $request->input('thumb')
         ];
         $response = $use_case->__invoke($params);

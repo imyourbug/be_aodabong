@@ -11,7 +11,7 @@ class GetAllCategoriesUseCase
 {
     public function __invoke(): array
     {
-        $categories = Category::get();
+        $categories = Category::with('products')->get();
 
         return [
             'status' => GlobalConst::STATUS_OK,

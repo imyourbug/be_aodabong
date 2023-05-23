@@ -16,9 +16,9 @@ class UpdateDetailProductRequest extends BaseRequest
     public function rules(): array
     {
         return [
-            'id' => 'required|integer',
-            'price' => 'required|integer',
-            'price_sale' => 'nullable|integer',
+            'product_id' => 'required|integer',
+            'code_size' => 'required|string',
+            'code_color' => 'required|string',
             'unit_in_stock' => 'required|integer',
             'thumb' => 'required|string'
         ];

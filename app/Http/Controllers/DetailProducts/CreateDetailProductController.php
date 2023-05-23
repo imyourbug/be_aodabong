@@ -18,8 +18,6 @@ class CreateDetailProductController extends BaseController
             'product_id' => $request->input('product_id'),
             'code_color' => $request->input('code_color'),
             'code_size' => $request->input('code_size'),
-            'price' => (int) $request->input('price'),
-            'price_sale' => (int) $request->input('price_sale') ?? null,
             'unit_in_stock' => (int) $request->input('unit_in_stock'),
             'thumb' => $request->input('thumb')
         ];

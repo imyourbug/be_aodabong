@@ -21,108 +21,84 @@ class ProductDetailSeeder extends Seeder
                 'code_color' => '#F39402',
                 'code_size' => 'S',
                 'unit_in_stock' => 9,
-                'price' => 340000,
-                'price_sale' => null,
-                'thumb' => '/storage/uploads/2022-09-09/06-31-04aoMU.PNG'
+                'thumb' => env('DOMAIN') . '/storage/uploads/2022-09-29/14-56-51ao4.jpg'
             ],
             [
                 'product_id' => 1,
                 'code_color' => '#F39402',
                 'code_size' => 'M',
                 'unit_in_stock' => 8,
-                'price' => 340000,
-                'price_sale' => null,
-                'thumb' => '/storage/uploads/2022-09-09/06-31-04aoMU.PNG'
+                'thumb' => env('DOMAIN') . '/storage/uploads/2022-09-29/06-31-04aoMU.PNG'
             ],
             [
                 'product_id' => 1,
                 'code_color' => '#FFFFFF',
                 'code_size' => 'S',
                 'unit_in_stock' => 3,
-                'price' => 380000,
-                'price_sale' => 350000,
-                'thumb' => '/storage/uploads/2022-09-09/06-31-04aoMU.PNG'
+                'thumb' => env('DOMAIN') . '/storage/uploads/2022-09-29/06-31-04aoMU.PNG'
             ],
             [
                 'product_id' => 1,
                 'code_color' => '#2C3E50',
                 'code_size' => 'XXL',
                 'unit_in_stock' => 24,
-                'price' => 370000,
-                'price_sale' => 340000,
-                'thumb' => '/storage/uploads/2022-09-09/06-31-04aoMU.PNG'
+                'thumb' => env('DOMAIN') . '/storage/uploads/2022-09-29/06-31-04aoMU.PNG'
             ],
             [
                 'product_id' => 1,
                 'code_color' => '#F8228A',
                 'code_size' => 'M',
                 'unit_in_stock' => 102,
-                'price' => 340000,
-                'price_sale' => null,
-                'thumb' => '/storage/uploads/2022-09-09/06-31-04aoMU.PNG'
+                'thumb' => env('DOMAIN') . '/storage/uploads/2022-09-29/06-31-04aoMU.PNG'
             ],
             [
                 'product_id' => 2,
                 'code_color' => '#F62612',
                 'code_size' => 'XL',
                 'unit_in_stock' => 9,
-                'price' => 350000,
-                'price_sale' => 250000,
-                'thumb' => '/storage/uploads/2022-09-09/06-31-04aoMU.PNG'
+                'thumb' => env('DOMAIN') . '/storage/uploads/2022-09-29/14-56-51ao4.jpg'
             ],
             [
                 'product_id' => 2,
                 'code_color' => '#F39402',
                 'code_size' => 'L',
                 'unit_in_stock' => 9,
-                'price' => 350000,
-                'price_sale' => 240000,
-                'thumb' => '/storage/uploads/2022-09-09/06-31-04aoMU.PNG'
+                'thumb' => env('DOMAIN') . '/storage/uploads/2022-09-29/06-31-04aoMU.PNG'
             ],
             [
                 'product_id' => 3,
                 'code_color' => '#1145F6',
                 'code_size' => 'S',
                 'unit_in_stock' => 9,
-                'price' => 360000,
-                'price_sale' => null,
-                'thumb' => '/storage/uploads/2022-09-09/06-31-04aoMU.PNG'
+                'thumb' => env('DOMAIN') . '/storage/uploads/2022-09-29/06-31-04aoMU.PNG'
             ],
             [
                 'product_id' => 4,
                 'code_color' => '#1145F6',
                 'code_size' => 'S',
                 'unit_in_stock' => 34,
-                'price' => 340000,
-                'price_sale' => null,
-                'thumb' => '/storage/uploads/2022-09-09/06-31-04aoMU.PNG'
+                'thumb' => env('DOMAIN') . '/storage/uploads/2022-09-29/06-31-04aoMU.PNG'
             ],
             [
                 'product_id' => 5,
                 'code_color' => '#F62612',
                 'code_size' => 'XL',
                 'unit_in_stock' => 11,
-                'price' => 340000,
-                'price_sale' => null,
-                'thumb' => '/storage/uploads/2022-09-09/06-31-04aoMU.PNG'
+                'thumb' => env('DOMAIN') . '/storage/uploads/2022-09-29/06-31-04aoMU.PNG'
             ],
             [
                 'product_id' => 6,
                 'code_color' => '#F62612',
                 'code_size' => 'S',
                 'unit_in_stock' => 11,
-                'price' => 150000,
-                'price_sale' => 100000,
-                'thumb' => '/storage/uploads/2022-09-09/06-31-04aoMU.PNG'
+                'thumb' => env('DOMAIN') . '/storage/uploads/2022-09-29/14-56-51ao4.jpg'
             ],
             [
                 'product_id' => 7,
                 'code_color' => '#1145F6',
                 'code_size' => 'M',
                 'unit_in_stock' => 11,
-                'price' => 150000,
-                'price_sale' => 90000,
-                'thumb' => '/storage/uploads/2022-09-09/06-31-04aoMU.PNG'
+                'thumb' => env('DOMAIN') . '/storage/uploads/2022-09-29/14-43-24ao2.jpg'
             ],
         ];
 

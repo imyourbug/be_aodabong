@@ -18,6 +18,8 @@ class CreateProductController extends BaseController
             'name' => $request->input('name'),
             'category_id' => (int) $request->input('category_id'),
             'supplier_id' => (int) $request->input('supplier_id'),
+            'price' => (int) $request->input('price'),
+            'price_sale' => $request->input('price_sale'),
             'active' => (int) $request->input('active'),
             'thumb' => $request->input('thumb')
         ];

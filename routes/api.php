@@ -64,7 +64,7 @@ Route::group(['prefix' => 'products', 'namespace' => 'App\Http\Controllers\Produ
 
 #detail_products
 Route::group(['prefix' => 'detail_products', 'namespace' => 'App\Http\Controllers\DetailProducts', 'as' => 'detail_products.'], function () {
-    // Route::get('list', 'GetAllProductsController');
+    // Route::get('list', 'GetAllDetailProductController');
     Route::post('create', 'CreateDetailProductController');
     Route::put('update', 'UpdateDetailProductController');
     Route::delete('delete', 'DeleteDetailProductController');

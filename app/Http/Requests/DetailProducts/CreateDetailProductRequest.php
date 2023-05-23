@@ -20,8 +20,6 @@ class CreateDetailProductRequest extends BaseRequest
             'product_id' => 'required|integer',
             'code_color' => 'required|string',
             'code_size' => 'required|string',
-            'price' => 'required|integer',
-            'price_sale' => 'nullable|integer',
             'unit_in_stock' => 'required|integer',
             'thumb' => 'required|string'
         ];

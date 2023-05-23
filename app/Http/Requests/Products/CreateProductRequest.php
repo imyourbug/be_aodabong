@@ -19,6 +19,8 @@ class CreateProductRequest extends BaseRequest
             'name' => 'required|string',
             'category_id' => 'required|integer',
             'supplier_id' => 'required|integer',
+            'price' => 'required|integer',
+            'price_sale' => 'nullable|integer',
             'active' => 'required|integer',
             'thumb' => 'required|string'
         ];
