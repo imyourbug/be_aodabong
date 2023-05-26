@@ -7,9 +7,9 @@ services:
             context: ./
             dockerfile: docker/nginx.dockerfile
         ports:
-            - ${APP_PORT:-8000}:80
+            - '${APP_PORT:-8000}:80'
         volumes:
-            - ./:/var/www/html:delegated
+            - './:/var/www/html:delegated'
         depends_on:
             - php
             - mysql
@@ -21,7 +21,7 @@ services:
         # restart: unless-stopped
         tty: true
         ports:
-            - ${DB_PORT:-3306}:3306
+            - '${DB_PORT:-3306}:3306'
         environment:
             MYSQL_DATABASE: aodabong
             MYSQL_USER: test
@@ -34,11 +34,11 @@ services:
             context: ./
             dockerfile: docker/php.dockerfile
             args:
-                - UID=${UID:-1000}
-                - GID=${GID:-1000}
+                - 'UID=${UID:-1000}'
+                - 'GID=${GID:-1000}'
         container_name: php.aodabong
         volumes:
-            - ./:/var/www/html:delegated
+            - './:/var/www/html:delegated'
         networks:
             - laravel
 networks:
