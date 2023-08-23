@@ -11,7 +11,7 @@ class GetAllColorsUseCase
 {
     public function __invoke(): array
     {
-        $colors = Color::get();
+        $colors = Color::all();
         if ($colors->isEmpty()) {
             return [
                 'status' => GlobalConst::STATUS_ERROR,

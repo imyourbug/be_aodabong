@@ -28,9 +28,8 @@ class CreateDetailProductUseCase
                 ->where('code_color', $params['code_color'])
                 ->where('code_size', $params['code_size'])
                 ->first();
-            $params['price_sale'] = $params['price_sale'] !== null ? (int) $params['price_sale'] : null;
             if (!$detail_product) {
-                ProductDetail::created($params);
+                $detail_product = ProductDetail::create($params);
             } else {
                 $detail_product->update([
                     'unit_in_stock' => $detail_product->unit_in_stock + $params['unit_in_stock'],

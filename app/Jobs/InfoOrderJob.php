@@ -2,30 +2,31 @@
 
 namespace App\Jobs;
 
-use App\Mail\SendMailRecoverPassword;
+use App\Interfaces\MailServiceInterface;
+use App\Mail\InforOrderMail;
 use Illuminate\Bus\Queueable;
+use Illuminate\Contracts\Queue\ShouldBeUnique;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
-use Illuminate\Support\Facades\Mail;
 
-class RecoverPassword implements ShouldQueue
+class InfoOrderJob implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
     public string $email;
-    public string $new_password;
+    public mixed $content;
 
     /**
      * Create a new job instance.
      *
      * @return void
      */
-    public function __construct($email, $new_password)
+    public function __construct($email, $content)
     {
         $this->email = $email;
-        $this->new_password = $new_password;
+        $this->content = $content;
     }
 
     /**
@@ -33,8 +34,11 @@ class RecoverPassword implements ShouldQueue
      *
      * @return void
      */
-    public function handle()
+    public function handle(MailServiceInterface $mailServiceInterface)
     {
-        Mail::to($this->email)->send(new SendMailRecoverPassword($this->new_password));
+        $mailServiceInterface->send(
+            $this->email,
+            new InforOrderMail('Thông tin đơn hàng', $this->content)
+        );
     }
 }

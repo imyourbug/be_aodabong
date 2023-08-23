@@ -11,7 +11,7 @@ class GetAllCommentsUseCase
 {
     public function __invoke(): array
     {
-        $comments = Comment::get();
+        $comments = Comment::all();
 
         return [
             'status' => GlobalConst::STATUS_OK,

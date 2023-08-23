@@ -10,7 +10,8 @@
 
 <body>
     <h2>Mật khẩu mới của bạn là: {{ $new_password }}</h2>
-    <h4>Bấm vào đây để quay lại trang đăng nhập: <a href="http://localhost:8080/login">Đăng nhập</a></h4>
+    <h4>Bấm vào đây để quay lại trang đăng nhập: <a href="{{ env('DOMAIN_FE', 'http://localhost:8080') }}/login">Đăng
+            nhập</a></h4>
 </body>
 
 </html>

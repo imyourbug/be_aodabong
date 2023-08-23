@@ -19,6 +19,7 @@ class CreateCommentController extends BaseController
             'product_id' => $request->input('product_id'),
             'reply_id' => $request->input('reply_id'),
             'content' => $request->input('content'),
+            'level_star' => $request->input('level_star'),
         ];
         $response = $use_case->__invoke($params);
 

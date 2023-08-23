@@ -24,14 +24,11 @@ class UpdateDetailProductUseCase
                     ]
                 ];
             }
-            $params['price_sale'] = $params['price_sale'] !== null ? (int) $params['price_sale'] : null;
             ProductDetail::updateOrCreate([
                 'product_id' => $params['product_id'],
                 'code_size' => $params['code_size'],
                 'code_color' => $params['code_color'],
             ], [
-                'price' => $params['price'],
-                'price_sale' => $params['price_sale'],
                 'unit_in_stock' => $params['unit_in_stock'],
                 'thumb' => $params['thumb'],
             ]);

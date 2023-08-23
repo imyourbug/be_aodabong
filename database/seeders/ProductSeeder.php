@@ -16,7 +16,7 @@ class ProductSeeder extends Seeder
     {
         $products = [
             [
-                'name' => 'Áo MU',
+                'name' => 'Giày MU',
                 'category_id' => 1,
                 'supplier_id' => 1,
                 'price' => 340000,
@@ -25,7 +25,7 @@ class ProductSeeder extends Seeder
                 'thumb' => env('DOMAIN') . '/storage/uploads/2022-09-30/01-42-31ao1.jpg'
             ],
             [
-                'name' => 'Áo MC',
+                'name' => 'Giày MC',
                 'category_id' => 1,
                 'supplier_id' => 1,
                 'price' => 380000,
@@ -34,7 +34,7 @@ class ProductSeeder extends Seeder
                 'thumb' => env('DOMAIN') . '/storage/uploads/2022-09-30/01-42-59ao2.jpg'
             ],
             [
-                'name' => 'Áo Liverpool',
+                'name' => 'Giày Liverpool',
                 'category_id' => 1,
                 'supplier_id' => 2,
                 'price' => 370000,
@@ -43,7 +43,7 @@ class ProductSeeder extends Seeder
                 'thumb' => env('DOMAIN') . '/storage/uploads/2022-09-30/01-43-38ao3.jpg'
             ],
             [
-                'name' => 'Áo Arsenal',
+                'name' => 'Giày Arsenal',
                 'category_id' => 1,
                 'supplier_id' => 3,
                 'price' => 350000,
@@ -52,7 +52,7 @@ class ProductSeeder extends Seeder
                 'thumb' => env('DOMAIN') . '/storage/uploads/2022-09-30/01-43-58ao4.jpg'
             ],
             [
-                'name' => 'Áo Tottenham',
+                'name' => 'Giày Tottenham',
                 'category_id' => 1,
                 'supplier_id' => 4,
                 'price' => 350000,
@@ -61,7 +61,7 @@ class ProductSeeder extends Seeder
                 'thumb' => env('DOMAIN') . '/storage/uploads/2022-09-30/01-44-15ao7.jpg'
             ],
             [
-                'name' => 'Quần Gucci',
+                'name' => 'Giày Gucci',
                 'category_id' => 2,
                 'supplier_id' => 4,
                 'price' => 360000,
@@ -70,7 +70,7 @@ class ProductSeeder extends Seeder
                 'thumb' => env('DOMAIN') . '/storage/uploads/2022-09-30/01-42-59ao2.jpg'
             ],
             [
-                'name' => 'Quần Louis Vuitton',
+                'name' => 'Giày Louis Vuitton',
                 'category_id' => 2,
                 'supplier_id' => 4,
                 'price' => 150000,

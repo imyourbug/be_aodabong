@@ -11,7 +11,7 @@ class GetAllSuppliersUseCase
 {
     public function __invoke(): array
     {
-        $suppliers = Supplier::get();
+        $suppliers = Supplier::all();
 
         return [
             'status' => GlobalConst::STATUS_OK,

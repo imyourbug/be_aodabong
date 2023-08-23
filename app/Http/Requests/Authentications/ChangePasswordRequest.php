@@ -17,7 +17,7 @@ class ChangePasswordRequest extends BaseRequest
     {
         return [
             'email' => 'required|email:dns,rfc',
-            'password' => 'required|string|min:8',
+            'password' => 'required|string',
             'new_password' => 'required|string|min:8',
             're_new_password' => 'required|string|min:8'
         ];

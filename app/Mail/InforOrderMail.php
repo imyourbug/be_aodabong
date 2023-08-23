@@ -3,24 +3,25 @@
 namespace App\Mail;
 
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class SendMailRecoverPassword extends Mailable
+class InforOrderMail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public string $new_password;
+    public $subject;
+    public $content;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct(string $new_password)
+    public function __construct($subject, $content)
     {
-        $this->new_password = $new_password;
+        $this->subject = $subject;
+        $this->content = $content;
     }
 
     /**
@@ -30,8 +31,10 @@ class SendMailRecoverPassword extends Mailable
      */
     public function build()
     {
-        return $this->view('mails.recover_password', [
-            'new_password' => $this->new_password
+        // Log::info('carts', [$this->content]);
+        return $this->view('mails.infor_order', [
+            'title' => $this->subject,
+            'content' => $this->content,
         ]);
     }
 }

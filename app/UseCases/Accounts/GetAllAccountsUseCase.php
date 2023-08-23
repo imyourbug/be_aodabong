@@ -11,7 +11,7 @@ class GetAllAccountsUseCase
 {
     public function __invoke(): array
     {
-        $accounts = User::get();
+        $accounts = User::all();
         if ($accounts->isEmpty()) {
             return [
                 'status' => GlobalConst::STATUS_ERROR,

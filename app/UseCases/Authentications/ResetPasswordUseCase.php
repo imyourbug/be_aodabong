@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\UseCases\Authentications;
 
 use App\Const\GlobalConst;
-use App\Jobs\RecoverPassword;
+use App\Jobs\RecoverPasswordJob;
 use App\Models\User;
 use Exception;
 use Illuminate\Support\Facades\Hash;
@@ -34,7 +34,7 @@ class ResetPasswordUseCase
                 'password' => Hash::make($new_password)
             ]);
             if ($reset_password) {
-                RecoverPassword::dispatch($email, $new_password)->delay(now()->addSeconds(1));
+                RecoverPasswordJob::dispatch($email, $new_password);
             }
 
             return [

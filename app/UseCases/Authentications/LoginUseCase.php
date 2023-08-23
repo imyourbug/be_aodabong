@@ -6,12 +6,13 @@ namespace App\UseCases\Authentications;
 
 use App\Const\GlobalConst;
 use Illuminate\Support\Facades\Auth;
+use JWTAuth;
 
 class LoginUseCase
 {
     public function __invoke($params): array
     {
-        if (!Auth::attempt($params)) {
+        if (!$token = JWTAuth::attempt($params)) {
             return [
                 'status' => GlobalConst::STATUS_ERROR,
                 'error' => [
@@ -23,9 +24,8 @@ class LoginUseCase
 
         return [
             'status' => GlobalConst::STATUS_OK,
-            'data' => [
-                'user' => Auth::user(),
-            ]
+            'user' => Auth::user(),
+            'access_token' => $token
         ];
     }
 }

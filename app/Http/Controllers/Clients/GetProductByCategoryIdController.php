@@ -13,7 +13,7 @@ class GetProductByCategoryIdController extends BaseController
 {
     public function __invoke($id, GetProductByCategoryIdUseCase $use_case): JsonResponse
     {
-        $response = $use_case->__invoke($id);
+        $response = $use_case->__invoke((int) $id);
 
         return response()->json(new GetProductByCategoryIdResource($response));
     }

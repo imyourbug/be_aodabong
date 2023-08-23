@@ -11,7 +11,7 @@ class GetAllCustomersUseCase
 {
     public function __invoke(): array
     {
-        $customers = Customer::get();
+        $customers = Customer::all();
 
         return [
             'status' => GlobalConst::STATUS_OK,

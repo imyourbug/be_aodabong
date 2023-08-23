@@ -2,7 +2,11 @@
 
 namespace App\Exceptions;
 
+use App\Const\GlobalConst;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Support\Facades\Log;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpKernel\Exception\UnauthorizedHttpException;
 use Throwable;
 
 class Handler extends ExceptionHandler
@@ -43,8 +47,25 @@ class Handler extends ExceptionHandler
      */
     public function register()
     {
+
         $this->reportable(function (Throwable $e) {
             //
         });
+
+        $this->renderable(
+            function (Throwable $e, $request) {
+                $response['status'] = GlobalConst::STATUS_ERROR;
+
+                if ($e instanceof UnauthorizedHttpException) {
+                    $response['error'] = [
+                        'code' => Response::HTTP_UNAUTHORIZED,
+                        'message' =>  'Unauthorized'
+                    ];
+                }
+                Log::debug('UnauthorizedHttpException ', $response);
+
+                return response()->json($response);
+            }
+        );
     }
 }

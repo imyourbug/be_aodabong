@@ -5,6 +5,9 @@ declare(strict_types=1);
 namespace App\UseCases\Clients\Orders;
 
 use App\Const\GlobalConst;
+use App\Interfaces\MailServiceInterface;
+use App\Jobs\InfoOrderJob;
+use App\Mail\InforOrderMail;
 use App\Models\Customer;
 use App\Models\Order;
 use App\Models\OrderDetail;
@@ -14,6 +17,10 @@ use Illuminate\Support\Facades\DB;
 
 class CreateOrderUseCase
 {
+    public function __construct(protected MailServiceInterface $mailServiceInterface)
+    {
+    }
+
     public function __invoke(array $params): array
     {
         try {
@@ -26,7 +33,10 @@ class CreateOrderUseCase
                 'customer_id' => $customer_id,
                 'status' => 0,
                 'discount' => $params['discount'],
-                'total_money' => $params['total_money']
+                'total_money' => $params['total_money'],
+                'payment_method' => $params['payment_method'],
+                'payment_status' => $params['payment_status'],
+                'shipment_id' => $params['shipment_id'],
             ]);
             // create order detail
             $order_id = $order->id ?? '';
@@ -46,10 +56,20 @@ class CreateOrderUseCase
             $details = ProductDetail::whereIn('id', array_keys($ids))->get();
             foreach ($details as $product_detail) {
                 $new_quantity = $product_detail->unit_in_stock - $ids[$product_detail->id];
+                if ($new_quantity < 0) {
+                    throw new Exception('Số lượng sản phẩm trong kho không đủ', GlobalConst::CHECKOUT_FAILED);
+                }
                 $product_detail->update([
                     'unit_in_stock' => $new_quantity
                 ]);
             }
+            // job
+            InfoOrderJob::dispatch($customer->email, [
+                'carts' => $params['carts'],
+                'products' => $details,
+                'customer' => $customer,
+                'order' => $order
+            ]);
         } catch (Exception $e) {
             DB::rollBack();
 

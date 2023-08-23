@@ -18,8 +18,6 @@ class UpdateDetailProductController extends BaseController
             'product_id' => $request->input('product_id'),
             'code_size' => $request->input('code_size'),
             'code_color' => $request->input('code_color'),
-            'price' => (int) $request->input('price'),
-            'price_sale' => $request->input('price_sale'),
             'unit_in_stock' => (int) $request->input('unit_in_stock'),
             'thumb' => $request->input('thumb')
         ];

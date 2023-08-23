@@ -13,7 +13,10 @@ class Order extends Model
         'customer_id',
         'status',
         'discount',
-        'total_money'
+        'total_money',
+        'payment_method',
+        'payment_status',
+        'shipment_id',
     ];
 
     public function order_details()
@@ -24,5 +27,10 @@ class Order extends Model
     public function customer()
     {
         return $this->belongsTo(Customer::class, 'customer_id', 'id');
+    }
+
+    public function shipment()
+    {
+        return $this->belongsTo(Shipment::class, 'shipment_id', 'id');
     }
 }

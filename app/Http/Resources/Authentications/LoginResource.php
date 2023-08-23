@@ -23,8 +23,11 @@ class LoginResource extends BaseResource
             $this->mergeWhen(isset($this['error']), [
                 'error' => $this['error'] ?? null
             ]),
-            $this->mergeWhen(isset($this['data']), [
-                'data' => $this['data'] ?? null
+            $this->mergeWhen(isset($this['user']), [
+                'user' => $this['user'] ?? null
+            ]),
+            $this->mergeWhen(isset($this['access_token']), [
+                'access_token' => $this['access_token'] ?? null
             ])
         ];
     }

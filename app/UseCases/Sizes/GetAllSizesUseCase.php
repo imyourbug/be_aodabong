@@ -11,7 +11,7 @@ class GetAllSizesUseCase
 {
     public function __invoke(): array
     {
-        $sizes = Size::get();
+        $sizes = Size::all();
 
         return [
             'status' => GlobalConst::STATUS_OK,

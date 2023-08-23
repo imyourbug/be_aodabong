@@ -24,8 +24,14 @@ class GetProductByIdResource extends BaseResource
             $this->mergeWhen(isset($this['error']), [
                 'error' => $this['error'] ?? null
             ]),
-            $this->mergeWhen(isset($this['data']), [
-                'data' => $this['data'] ?? null
+            $this->mergeWhen(isset($this['other_products']), [
+                'other_products' => $this['other_products'] ?? null
+            ]),
+            $this->mergeWhen(isset($this['product']), [
+                'product' => $this['product'] ?? null
+            ]),
+            $this->mergeWhen(isset($this['level_star']), [
+                'level_star' => $this['level_star'] ?? null
             ]),
         ];
     }

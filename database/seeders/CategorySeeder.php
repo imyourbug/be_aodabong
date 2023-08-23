@@ -16,14 +16,14 @@ class CategorySeeder extends Seeder
     {
         $categories = [
             [
-                'name' => 'Áo',
+                'name' => 'Giày vải',
                 'parent_id' => 0,
                 'description' => '',
                 'active' => 1,
                 'slug' => 'ao'
             ],
             [
-                'name' => 'Quần',
+                'name' => 'Giày da',
                 'parent_id' => 0,
                 'description' => '',
                 'active' => 1,

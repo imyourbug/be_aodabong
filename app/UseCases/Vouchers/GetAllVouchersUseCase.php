@@ -11,11 +11,11 @@ class GetAllVouchersUseCase
 {
     public function __invoke(): array
     {
-        $vouchers = Voucher::get();
+        $vouchers = Voucher::all();
 
         return [
             'status' => GlobalConst::STATUS_OK,
-            'data' => $vouchers
+            'vouchers' => $vouchers
         ];
     }
 }

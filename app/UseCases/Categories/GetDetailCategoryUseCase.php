@@ -11,7 +11,7 @@ class GetDetailCategoryUseCase
 {
     public function __invoke(string $category_id): array
     {
-        $category = Category::firstWhere('id', $category_id) ?? '';
+        $category = Category::with('products')->firstWhere('id', $category_id) ?? '';
         if (!$category) {
             return [
                 'status' => GlobalConst::STATUS_ERROR,
@@ -21,11 +21,10 @@ class GetDetailCategoryUseCase
                 ]
             ];
         }
-        $categories = Category::get();
+        $categories = Category::all();
         $result = [
             'detail' => $category,
             'children' => $this->getAllCategoryChild([], $categories, $category->id),
-            'products' => $this->getDetailProduct($category->products)
         ];
 
         return [
@@ -48,33 +47,5 @@ class GetDetailCategoryUseCase
             }
         }
         return $ids;
-    }
-
-    public function getDetailProduct($list_product)
-    {
-        $products = [];
-        foreach ($list_product as $product) {
-            $products[] =  [
-                'product' => $product,
-                'max_price' => $this->getMaxPrice($product->product_details),
-                'min_price' => $this->getMinPrice($product->product_details)
-            ];
-        };
-
-        return $products;
-    }
-
-    public function getMaxPrice($details)
-    {
-        $detail = collect($details)->sortBy('price')->last();
-
-        return $detail->price_sale ?? $detail->price;
-    }
-
-    public function getMinPrice($details)
-    {
-        $detail = collect($details)->sortByDesc('price')->last();
-
-        return $detail->price_sale ?? $detail->price;
     }
 }

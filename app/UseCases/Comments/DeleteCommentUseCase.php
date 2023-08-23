@@ -23,10 +23,11 @@ class DeleteCommentUseCase
                     ]
                 ];
             }
-            $comments = Comment::get();
-            $ids = [];
-            array_push($ids, $comment->id);
-            $this->deleteAllCommentChild($ids, $comments, $comment->id);
+            // $comments = Comment::all();
+            // $ids = [];
+            // array_push($ids, $comment->id);
+            // $this->deleteAllCommentChild($ids, $comments, $comment->id);
+            $comment->delete();
 
             return [
                 'status' => GlobalConst::STATUS_OK

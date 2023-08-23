@@ -16,14 +16,6 @@ class UpdateInfoController extends BaseController
     {
         $params = [
             'user' => $request->input('user'),
-            // 'id' => $request->input('id'),
-            // 'name' => $request->input('name'),
-            // 'phone' => $request->input('phone'),
-            // 'address' => $request->input('address'),
-            // 'district' => $request->input('district'),
-            // 'province' => $request->input('province'),
-            // 'zip_code' => $request->input('zip_code'),
-            // 'avatar' => $request->input('avatar')
         ];
         $response = $use_case->__invoke($params);
 

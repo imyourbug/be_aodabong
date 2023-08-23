@@ -2,6 +2,9 @@
 
 namespace App\Providers;
 
+use App\Interfaces\MailServiceInterface;
+use App\Services\SendMailableService;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -13,7 +16,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        // Artisan::command();
+        $this->app->bind(MailServiceInterface::class, SendMailableService::class);
     }
 
     /**

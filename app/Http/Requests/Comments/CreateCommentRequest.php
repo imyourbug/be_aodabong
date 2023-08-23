@@ -20,6 +20,7 @@ class CreateCommentRequest extends BaseRequest
             'product_id' => 'required|integer',
             'reply_id' => 'required|integer',
             'content' => 'required|string',
+            'level_star' => 'required|integer',
         ];
     }
 }

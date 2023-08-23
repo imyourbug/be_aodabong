@@ -26,7 +26,7 @@ class CreateOrderRequest extends BaseRequest
             'total_money' => 'required|integer',
             'carts.*.detail_id' => 'required|integer',
             'carts.*.quantity' => 'required|integer',
-            'carts.*.unit_price' => 'required|integer'
+            'carts.*.unit_price' => 'required|integer',
         ];
     }
 }
