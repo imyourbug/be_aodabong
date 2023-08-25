@@ -11,7 +11,7 @@ class GetProductByIdUseCase
 {
     public function __invoke(int $id): array
     {
-        $product = Product::with(['product_details', 'comments.user'])->firstWhere('id', $id) ?? '';
+        $product = Product::with(['product_details', 'comments.user', 'category'])->firstWhere('id', $id) ?? '';
         if (!$product) {
             return [
                 'status' => GlobalConst::STATUS_ERROR,

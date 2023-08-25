@@ -12,22 +12,26 @@
     <div class="tbl-hd">
         <table cellspacing="0">
             <tbody>
+                @php
+                    $dateTime = new DateTime($content['customer']['created_at']);
+                    $formattedDate = $dateTime->format('Y-m-d H:i:s');
+                @endphp
                 <caption>ĐƠN ĐẶT HÀNG</caption>
                 <tr>
-                    <td colspan="3">Ngày: {{ $content['customer']->created_at }}</td>
-                    <td colspan="3">Mã đơn hàng: {{ $content['order']->id }}</td>
+                    <td colspan="3">Ngày: {{ $formattedDate }}</td>
+                    <td colspan="3">Mã đơn hàng: {{ $content['order']['id'] }}</td>
                 </tr>
                 <tr>
-                    <td colspan="6">Tên người nhận: {{ $content['customer']->name }}</td>
+                    <td colspan="6">Tên người nhận: {{ $content['customer']['name'] }}</td>
                 </tr>
                 <tr>
-                    <td colspan="6">Email: {{ $content['customer']->email }}</td>
+                    <td colspan="6">Email: {{ $content['customer']['email'] }}</td>
                 </tr>
                 <tr>
-                    <td colspan="6">Địa chỉ: {{ $content['customer']->address }}</td>
+                    <td colspan="6">Địa chỉ: {{ $content['customer']['address'] }}</td>
                 </tr>
                 <tr>
-                    <td colspan="6">Số điện thoại: {{ $content['customer']->phone }}</td>
+                    <td colspan="6">Số điện thoại: {{ $content['customer']['phone'] }}</td>
                 </tr>
 
                 <tr class="row-txt">
@@ -41,13 +45,9 @@
                     $total = 0;
                 @endphp
                 @foreach ($content['carts'] as $key => $product)
-                    @php
-                        // Log::info($product->unit_price);
-                        $total += $product['unit_price'] * $product['quantity'];
-                    @endphp
                     <tr>
-                        <td class="col-infor">{{ $product['product_id'] }}</td>
-                        <td class="col-infor1">{{ $product['name'] }}</td>
+                        <td class="col-infor">{{ $product['detail']['product_id'] }}</td>
+                        <td class="col-infor1">{{ $product['detail']['product']['name'] }}</td>
                         <td class="col-infor">{{ $product['quantity'] }}</td>
                         <td class="col-infor2">
                             {{ number_format($product['unit_price'], 0, ',', '.') }}<sup>đ</sup>

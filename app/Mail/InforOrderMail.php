@@ -31,7 +31,6 @@ class InforOrderMail extends Mailable
      */
     public function build()
     {
-        // Log::info('carts', [$this->content]);
         return $this->view('mails.infor_order', [
             'title' => $this->subject,
             'content' => $this->content,

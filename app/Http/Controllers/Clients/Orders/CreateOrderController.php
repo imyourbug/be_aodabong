@@ -14,6 +14,7 @@ class CreateOrderController extends BaseController
 {
     public function __invoke(CreateOrderRequest $request, CreateOrderUseCase $use_case): JsonResponse
     {
+        // dd($request);
         $params = [
             'customer' => $request->input('customer'),
             'status' => $request->input('status'),

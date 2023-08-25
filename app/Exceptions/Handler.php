@@ -61,11 +61,18 @@ class Handler extends ExceptionHandler
                         'code' => Response::HTTP_UNAUTHORIZED,
                         'message' =>  'Unauthorized'
                     ];
+                    Log::debug('UnauthorizedHttpException ', $response);
+                } else {
+                    $response['error'] = [
+                        'code' => GlobalConst::STATUS_ERROR,
+                        'message' =>  $e->getMessage()
+                    ];
+                    Log::debug('Error ', $response);
                 }
-                Log::debug('UnauthorizedHttpException ', $response);
 
                 return response()->json($response);
             }
         );
     }
 }
+// 159

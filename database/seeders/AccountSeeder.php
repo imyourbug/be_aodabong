@@ -20,7 +20,7 @@ class AccountSeeder extends Seeder
                 'name' => 'Khải',
                 'email' => 'duongvankhai2022001@gmail.com',
                 'password' => Hash::make(12345678),
-                'role' => 0
+                'role' => 1
             ],
             [
                 'name' => 'Chiến',

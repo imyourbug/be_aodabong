@@ -11,7 +11,7 @@ class GetAllProductsUseCase
 {
     public function __invoke(): array
     {
-        $products = Product::with("category")->with("supplier")->with('product_details')->get();
+        $products = Product::with(['category', 'supplier', 'product_details.order_details.order'])->get();
 
         return [
             'status' => GlobalConst::STATUS_OK,

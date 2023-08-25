@@ -53,7 +53,8 @@ class CreateOrderUseCase
             }
             OrderDetail::insert($data);
             // decrease product quantity in stock
-            $details = ProductDetail::whereIn('id', array_keys($ids))->get();
+            $details = ProductDetail::with('product')->whereIn('id', array_keys($ids))->get();
+            $carts = [];
             foreach ($details as $product_detail) {
                 $new_quantity = $product_detail->unit_in_stock - $ids[$product_detail->id];
                 if ($new_quantity < 0) {
@@ -62,13 +63,25 @@ class CreateOrderUseCase
                 $product_detail->update([
                     'unit_in_stock' => $new_quantity
                 ]);
+                // increase quantity of sold
+                $product_detail->product()->update([
+                    'sold' => $product_detail->product->sold + $ids[$product_detail->id]
+                ]);
+                // 
+                foreach ($params['carts'] as $pro) {
+                    if ($pro['detail_id'] === $product_detail->id) {
+                        $carts[] = [
+                            ...$pro,
+                            'detail' => $product_detail->toArray()
+                        ];
+                    }
+                }
             }
             // job
             InfoOrderJob::dispatch($customer->email, [
-                'carts' => $params['carts'],
-                'products' => $details,
-                'customer' => $customer,
-                'order' => $order
+                'carts' => $carts,
+                'customer' => $customer->toArray(),
+                'order' => $order->toArray()
             ]);
         } catch (Exception $e) {
             DB::rollBack();

@@ -21,6 +21,7 @@ return new class extends Migration
             $table->integer('price');
             $table->integer('price_sale')->nullable();
             $table->integer('active');
+            $table->integer('sold')->default(0);
             $table->string('thumb');
             $table->timestamps();
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');

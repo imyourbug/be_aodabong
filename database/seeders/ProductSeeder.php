@@ -22,7 +22,7 @@ class ProductSeeder extends Seeder
                 'price' => 340000,
                 'price_sale' => null,
                 'active' => 1,
-                'thumb' => env('DOMAIN') . '/storage/uploads/2022-09-30/01-42-31ao1.jpg'
+                'thumb' => env('DOMAIN') . '/storage/uploads/images/giay1.jpg'
             ],
             [
                 'name' => 'Giày MC',
@@ -31,7 +31,7 @@ class ProductSeeder extends Seeder
                 'price' => 380000,
                 'price_sale' => 350000,
                 'active' => 1,
-                'thumb' => env('DOMAIN') . '/storage/uploads/2022-09-30/01-42-59ao2.jpg'
+                'thumb' => env('DOMAIN') . '/storage/uploads/images/giay2.jpg'
             ],
             [
                 'name' => 'Giày Liverpool',
@@ -40,7 +40,7 @@ class ProductSeeder extends Seeder
                 'price' => 370000,
                 'price_sale' => 340000,
                 'active' => 1,
-                'thumb' => env('DOMAIN') . '/storage/uploads/2022-09-30/01-43-38ao3.jpg'
+                'thumb' => env('DOMAIN') . '/storage/uploads/images/giay3.jpg'
             ],
             [
                 'name' => 'Giày Arsenal',
@@ -49,7 +49,7 @@ class ProductSeeder extends Seeder
                 'price' => 350000,
                 'price_sale' => 250000,
                 'active' => 1,
-                'thumb' => env('DOMAIN') . '/storage/uploads/2022-09-30/01-43-58ao4.jpg'
+                'thumb' => env('DOMAIN') . '/storage/uploads/images/giay4.jpg'
             ],
             [
                 'name' => 'Giày Tottenham',
@@ -58,7 +58,7 @@ class ProductSeeder extends Seeder
                 'price' => 350000,
                 'price_sale' => 240000,
                 'active' => 1,
-                'thumb' => env('DOMAIN') . '/storage/uploads/2022-09-30/01-44-15ao7.jpg'
+                'thumb' => env('DOMAIN') . '/storage/uploads/images/giay3.jpg'
             ],
             [
                 'name' => 'Giày Gucci',
@@ -67,7 +67,7 @@ class ProductSeeder extends Seeder
                 'price' => 360000,
                 'price_sale' => null,
                 'active' => 1,
-                'thumb' => env('DOMAIN') . '/storage/uploads/2022-09-30/01-42-59ao2.jpg'
+                'thumb' => env('DOMAIN') . '/storage/uploads/images/giay2.jpg'
             ],
             [
                 'name' => 'Giày Louis Vuitton',
@@ -76,7 +76,7 @@ class ProductSeeder extends Seeder
                 'price' => 150000,
                 'price_sale' => 100000,
                 'active' => 1,
-                'thumb' => env('DOMAIN') . '/storage/uploads/2022-09-30/01-42-59ao2.jpg'
+                'thumb' => env('DOMAIN') . '/storage/uploads/images/giay2.jpg'
             ]
         ];
 

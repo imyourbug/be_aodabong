@@ -27,7 +27,7 @@ class CategorySeeder extends Seeder
                 'parent_id' => 0,
                 'description' => '',
                 'active' => 1,
-                'slug' => 'quan'
+                'slug' => 'giay'
             ],
             [
                 'name' => 'Giày',
@@ -79,39 +79,39 @@ class CategorySeeder extends Seeder
                 'slug' => 'cup-dong'
             ],
             [
-                'name' => 'Quần nữ',
+                'name' => 'Giày nữ',
                 'parent_id' => 2,
                 'description' => '',
                 'active' => 1,
-                'slug' => 'quan-nu'
+                'slug' => 'giay-nu'
             ],
             [
-                'name' => 'Quần nam',
+                'name' => 'Giày nam',
                 'parent_id' => 2,
                 'description' => '',
                 'active' => 1,
-                'slug' => 'quan-nam'
+                'slug' => 'giay-nam'
             ],
             [
-                'name' => 'Quần đùi nam',
+                'name' => 'Giày nam',
                 'parent_id' => 11,
                 'description' => '',
                 'active' => 1,
-                'slug' => 'quan-dui-nam'
+                'slug' => 'giay-nam'
             ],
             [
-                'name' => 'Quần âu nam',
+                'name' => 'Giày âu nam',
                 'parent_id' => 11,
                 'description' => '',
                 'active' => 1,
-                'slug' => 'quan-au-nam'
+                'slug' => 'giay-au-nam'
             ],
             [
-                'name' => 'Quần bò nam',
+                'name' => 'Giày bò nam',
                 'parent_id' => 11,
                 'description' => '',
                 'active' => 1,
-                'slug' => 'quan-bo-nam'
+                'slug' => 'giay-bo-nam'
             ],
 
         ];

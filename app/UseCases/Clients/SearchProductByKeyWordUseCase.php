@@ -21,14 +21,16 @@ class SearchProductByKeyWordUseCase
             ];
         }
 
-        $products = Product::where('name', 'like', '%' . $key_word . '%')->get();
-        $other_products = Product::where('name', 'not like', '%' . $key_word . '%')->get();
+        $like = Product::with(['category', 'supplier', 'product_details.order_details.order'])
+            ->where('name', 'like', '%' . $key_word . '%')->get();
+        $not_like = Product::with(['category', 'supplier', 'product_details.order_details.order'])
+            ->where('name', 'not like', '%' . $key_word . '%')->get();
 
         return [
             'status' => GlobalConst::STATUS_OK,
             'data' => [
-                'like' => $products,
-                'not_like' => $other_products
+                'like' => $like,
+                'not_like' => $not_like
             ]
         ];
     }

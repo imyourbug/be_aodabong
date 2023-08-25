@@ -12,10 +12,8 @@ class UploadImageUseCase
     public function __invoke($image_file): array
     {
         try {
-            // dd($image_file);
-            $file_name = date('H-i-s') . $image_file->getClientOriginalName();
-            $pathFull = 'uploads/' . date('Y-m-d');
-            // $image_file->resize(640, 640);
+            $file_name = $image_file->getClientOriginalName();
+            $pathFull = 'uploads/images';
             $image_file->storeAs(
                 'public/' . $pathFull,
                 $file_name

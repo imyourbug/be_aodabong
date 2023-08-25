@@ -15,6 +15,7 @@ class Product extends Model
         'supplier_id',
         'price',
         'price_sale',
+        'sold',
         'active',
         'thumb'
     ];
