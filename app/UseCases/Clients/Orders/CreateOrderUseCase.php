@@ -78,11 +78,12 @@ class CreateOrderUseCase
                 }
             }
             // job
-            InfoOrderJob::dispatch($customer->email, [
+            InfoOrderJob::dispatch($customer, [
                 'carts' => $carts,
                 'customer' => $customer->toArray(),
                 'order' => $order->toArray()
             ]);
+            
         } catch (Exception $e) {
             DB::rollBack();
 

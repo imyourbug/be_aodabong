@@ -3,8 +3,9 @@
 namespace App\Providers;
 
 use App\Interfaces\MailServiceInterface;
+use App\Interfaces\MessageServiceInterface;
 use App\Services\SendMailableService;
-use Illuminate\Support\Facades\Artisan;
+use App\Services\SendVonageMessageService;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -18,6 +19,7 @@ class AppServiceProvider extends ServiceProvider
     {
         // Artisan::command();
         $this->app->bind(MailServiceInterface::class, SendMailableService::class);
+        $this->app->bind(MessageServiceInterface::class, SendVonageMessageService::class);
     }
 
     /**
