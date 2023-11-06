@@ -16,7 +16,7 @@ class SocialLoginUseCase
     public function __invoke($params): array
     {
         try {
-            $social_account = Social::with('user')->firstWhere('provider_user_id', $params['provider_user_id']) ?? '';
+            $social_account = Social::with('user')->firstWhere('provider_user_id', $params['provider_user_id']);
             $user = null;
             if (!$social_account) {
                 $user = User::firstOrCreate(
@@ -32,10 +32,12 @@ class SocialLoginUseCase
                     'provider_user_id' => $params['provider_user_id'],
                     'provider' => $params['type']
                 ]);
-            } else User::where('id', $social_account->user_id)->update([
-                'name' => $params['name'],
-                'avatar' => $params['avatar'],
-            ]);
+            } else {
+                User::where('id', $social_account->user_id)->update([
+                    'name' => $params['name'],
+                    'avatar' => $params['avatar'],
+                ]);
+            }
             $token = JWTAuth::fromUser($social_account->user);
 
             return [

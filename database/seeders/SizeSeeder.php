@@ -15,27 +15,33 @@ class SizeSeeder extends Seeder
     public function run()
     {
         $sizes = [
-            [
-                'size' => 'S',
-            ],
-            [
-                'size' => 'M',
-            ],
-            [
-                'size' => 'XL',
-            ],
-            [
-                'size' => 'XXL',
-            ],
             // [
-            //     'size' => '29',
+            //     'size' => 'S',
             // ],
             // [
-            //     'size' => '30',
+            //     'size' => 'M',
             // ],
             // [
-            //     'size' => '31',
+            //     'size' => 'XL',
             // ],
+            // [
+            //     'size' => 'XXL',
+            // ],
+            [
+                'size' => '39',
+            ],
+            [
+                'size' => '40',
+            ],
+            [
+                'size' => '41',
+            ],
+            [
+                'size' => '42',
+            ], 
+            [
+                'size' => '43',
+            ],
         ];
 
         try {

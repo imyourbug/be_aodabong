@@ -18,10 +18,11 @@ return new class extends Migration
             $table->unsignedBigInteger('customer_id')->unique();
             $table->unsignedBigInteger('shipment_id');
             /**
-             * 0 - wait for confirm, 1 - wait for prepair, 
-             * 2 - shipping, 3 - shipper shipped,
-             * 4 - wait for confirm cancel, 5 - canceled,
-             * 6 - done,
+             * 0 - wait for confirm, 1 - wait for prepare, 
+             * 2 - shipping
+             * 3 - wait for confirm cancel, 4 - canceled,
+             * 5 - done, 
+             * 6 - returning, 7 - returned
              */
             $table->integer('status');
             $table->integer('discount')->default(0);

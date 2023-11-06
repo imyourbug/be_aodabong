@@ -124,6 +124,7 @@ Route::group(['prefix' => 'orders', 'namespace' => 'App\Http\Controllers\Orders'
     Route::get('details/{id}', 'GetOrderByIdController');
     Route::put('update', 'UpdateOrderController')->middleware('jwt.auth');
     Route::delete('delete', 'DeleteOrderController')->middleware('jwt.auth');
+    Route::post('search', 'SearchOrderController');
 });
 
 #clients
@@ -139,7 +140,7 @@ Route::group(['prefix' => 'clients', 'namespace' => 'App\Http\Controllers\Client
     Route::put('info/update', 'UpdateInfoController')->middleware('jwt.auth');
     #checkout
     Route::group(['prefix' => 'checkouts', 'namespace' => 'Checkouts', 'as' => 'checkouts.'], function () {
-        Route::post('/vnpay', 'CheckoutVnpayController');
+        Route::post('/vnpay', 'CheckOutVnpayController');
     });
 });
 
