@@ -60,13 +60,9 @@ class CreateOrderUseCase
                 if ($new_quantity < 0) {
                     throw new Exception('Số lượng sản phẩm trong kho không đủ', GlobalConst::CHECKOUT_FAILED);
                 }
-                $product_detail->update([
-                    'unit_in_stock' => $new_quantity
-                ]);
+                $product_detail->decrement('unit_in_stock', $ids[$product_detail->id]);
                 // increase quantity of sold
-                $product_detail->product()->update([
-                    'sold' => $product_detail->product->sold + $ids[$product_detail->id]
-                ]);
+                $product_detail->product()->increment('sold', $ids[$product_detail->id]);
                 // 
                 foreach ($params['carts'] as $pro) {
                     if ($pro['detail_id'] === $product_detail->id) {
@@ -83,7 +79,6 @@ class CreateOrderUseCase
                 'customer' => $customer->toArray(),
                 'order' => $order->toArray()
             ]);
-            
         } catch (Exception $e) {
             DB::rollBack();
 

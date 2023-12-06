@@ -16,7 +16,7 @@ class CreateAccountRequest extends BaseRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|string',
+            'name' => 'nullable|string',
             'email' => 'required|email:dns,rfc|unique:users,email',
             'password' => 'required|string|min:8',
             'role' => 'required|in:0,1'

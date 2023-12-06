@@ -13,6 +13,7 @@ class GetRevenueByMonthUseCase
     {
         $data = DB::table('orders')
             ->selectRaw('sum(total_money) as revenue, month(created_at) as month, year(created_at) as year')
+            ->where('status', 5)
             ->when($from, function ($query) use ($from, $to) {
                 return $query->when($to, function ($query) use ($from, $to) {
                     return $query->whereBetween('created_at', [$from, $to]);

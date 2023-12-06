@@ -6,7 +6,7 @@ namespace App\Http\Requests\Suppliers;
 
 use App\Http\Requests\BaseRequest;
 
-class CreateSupplierRequest extends BaseRequest
+class UpdateSupplierRequest extends BaseRequest
 {
     /**
      * Get the validation rules that apply to the request.
@@ -16,9 +16,10 @@ class CreateSupplierRequest extends BaseRequest
     public function rules(): array
     {
         return [
+            'id' => 'required|integer',
             'name' => 'required|string',
             'email' => 'required|email:dns,rfc',
-            'address' => 'required|string',
+            'address' => 'nullable|string',
             'phone' => 'nullable|string|max:10'
         ];
     }
