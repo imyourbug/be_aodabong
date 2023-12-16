@@ -33,8 +33,7 @@ class CreateDetailProductUseCase
             } else {
                 $detail_product->update([
                     'unit_in_stock' => $detail_product->unit_in_stock + $params['unit_in_stock'],
-                    'price' => $params['price'],
-                    'price_sale' => $params['price_sale']
+                    'thumb' => $params['thumb'],
                 ]);
             }
             return [

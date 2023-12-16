@@ -24,14 +24,11 @@ class UpdateDetailProductUseCase
                     ]
                 ];
             }
-            ProductDetail::updateOrCreate([
-                'product_id' => $params['product_id'],
-                'code_size' => $params['code_size'],
-                'code_color' => $params['code_color'],
-            ], [
-                'unit_in_stock' => $params['unit_in_stock'],
-                'thumb' => $params['thumb'],
-            ]);
+            ProductDetail::firstWhere('id', $params['id'])
+                ->update([
+                    'unit_in_stock' => $params['unit_in_stock'],
+                    'thumb' => $params['thumb'],
+                ]);
 
             return [
                 'status' => GlobalConst::STATUS_OK
