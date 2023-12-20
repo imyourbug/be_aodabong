@@ -61,7 +61,7 @@ class CreateOrderUseCase
                     throw new Exception('Số lượng sản phẩm trong kho không đủ', GlobalConst::CHECKOUT_FAILED);
                 }
                 $product_detail->decrement('unit_in_stock', $ids[$product_detail->id]);
-                // increase quantity of sold
+                // increase sold quantity
                 $product_detail->product()->increment('sold', $ids[$product_detail->id]);
                 // 
                 foreach ($params['carts'] as $pro) {
