@@ -18,6 +18,8 @@ class UpdateProductRequest extends BaseRequest
         return [
             'id' => 'required|integer',
             'name' => 'required|string',
+            'price' => 'required|integer',
+            'price_sale' => 'nullable|integer',
             'category_id' => 'required|integer',
             'supplier_id' => 'required|integer',
             'active' => 'required|integer',

@@ -20,6 +20,8 @@ class GetRevenueByMonthUseCase
                 }, function ($query) use ($from) {
                     return $query->where('created_at', '>=', $from);
                 });
+            }, function ($query) use ($to) {
+                return !empty($to) ? $query->where('created_at', '<=', $to) : $query;
             })
             ->orderBy('year')
             ->orderBy('month')
